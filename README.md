@@ -76,7 +76,20 @@ $ catkin_make --source xhab_ui_dev/
 TODO.
 
 ###Running the dev nodes
+You'll need to update the MySQL database connection credentials in data_logger.py on Line 7:
 
+````python
+# in xhab_ui_dev/scripts/data_logger.rb
+...
+# Line 7:
+db = MySQLdb.connect("localhost","root","<root_password>","xhab_ui_dev" )
+...
+````
+
+````bash
+$ rosrun xhab_ui_dev data_generator.py
+$ rosrun xhab_ui_dev data_logger.py
+````
 
 ##Running the application
 From within the Rails root directory (the directory containing this README),  
