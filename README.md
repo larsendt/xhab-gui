@@ -1,12 +1,12 @@
-XHAB GUI
-========
+#XHAB GUI
 
-This is one of three repositories for CU Boulder's XHAB project. It contains
-all of the code for the GUI.
-=======
+This is one of three repositories for CU Boulder's XHAB project. It contains all of the code for the GUI, as well as a helper ROS package that provides mock data in realtime, and stores the mock data to a MySQL database.
+
 This README assumes you are running Ubuntu, but the assumptions stop there.
 Everything needed to set up and configure your development environment for the project is covered below.
 Even if you have some of the prerequsisites already, its not a bad idea to skim over the sections to make sure you have everything set up.
+
+=======
 
 ##Prerequisites
 
