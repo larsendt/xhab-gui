@@ -64,12 +64,14 @@ $ sudo apt-get install python-mysqldb
 ````
 
 ####Using catkin
-Add the xhab_ui_dev directory to your catkin workspace and build it.
+There are probably several ways to get the package registered with ROS and working in your environment. This symlink method seems to work fine. You'll create a symlink within your catkin workspace ```src``` directory to the package in your clone of the repository.
+
 
 ````bash
 # Replace path elements in <> with your own.
-$ cp -r <xhab-ui-dir>/ros/xhab_ui_dev <your_catkin_ws>/
-$ catkin_make --source xhab_ui_dev/
+# Run the following from your catkin workspace root directory:
+$ sudo ln -s <path_to_repo>/ros/xhab_ui_dev src/
+$ catkin_make
 ````
 
 ####Using rosbuild
