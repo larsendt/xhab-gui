@@ -40,7 +40,29 @@ Using these two nodes, X-Hab UI developers have a means of generating and storin
 
 The xhab_ui_dev package is found in the ros directory of this project.
 
-###Installing the package
+###Create the database
+````bash
+# The data table has three columns:
+# timetamp: UNIX timestamp
+# source: Which component provided the data, e.g., 'spot3' or 'rogr'
+# type: What sensor provided the data, e.g., 'ph', 'temp'
+# value: unsigned float (the data)
+$ mysql -u root -p<mysql_root_password>
+mysql> CREATE DATABASE xhab_ui_dev;
+mysql> use xhab_ui_dev;
+mysql> CREATE TABLE data (timestamp INT(11), source VARCHAR(255), type VARCHAR(255), data FLOAT, INDEX timestamp USING BTREE (timestamp), INDEX source USING BTREE (source), INDEX type USING BTREE (type));
+mysql> exit
+````
+
+###Install the package
+The data_logger requires the python MySQL package, so be sure to install that before you build the package.
+If you're using a python environment management system (like virtualenv), you may want to install the extension in the way that works for your environment.
+If you're using a global python installation on your system, you can grab the extension using apt-get.
+
+````bash
+$ sudo apt-get install python-mysqldb
+````
+
 ####Using catkin
 Add the xhab_ui_dev directory to your catkin workspace and build it.
 
@@ -51,8 +73,10 @@ $ catkin_make --source xhab_ui_dev/
 ````
 
 ####Using rosbuild
-TODO
-Configure 
+TODO.
+
+###Running the dev nodes
+
 
 ##Running the application
 From within the Rails root directory (the directory containing this README),  
