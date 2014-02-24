@@ -45,3 +45,7 @@ nosetests.xml
 # Ignore all logfiles and tempfiles.
 /rails/log/*.log
 /rails/tmp
+
+# Ignore generated files from catkin_make
+/ros/xhab_ui_dev/src/CMakeLists.txt
+/ros/xhab_ui_dev/scripts/CMakeLists.txt
