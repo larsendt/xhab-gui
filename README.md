@@ -48,7 +48,7 @@ The xhab_ui_dev package is found in the ros directory of this project.
 
 ###Create the database
 ````bash
-# The data table has three columns:
+# The data table has four columns:
 # timetamp: UNIX timestamp
 # source: Which component provided the data, e.g., 'spot3' or 'rogr'
 # type: What sensor provided the data, e.g., 'ph', 'temp'
