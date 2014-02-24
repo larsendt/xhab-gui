@@ -40,7 +40,7 @@ $ rvm install 2.1.0
 ````
 
 ##Bootstrapping
-To support UI development, the xhab_ui_dev ROS package is provided in this repository. The package provides two python nodes: data_generator.py and data_logger.py. The data_generator produces a simple sin wave of data, publishing data points each second on the dev/data topic. The data_logger subscribes to the topic and inserts each data point into a MySQL database. 
+To support UI development, the xhab_ui_dev ROS package is provided in this repository. The package provides two python nodes: data_generator.py and data_logger.py. The data_generator produces a simple sine wave of data, publishing data points each second on the dev/data topic. The data_logger subscribes to the topic and inserts each data point into a MySQL database. 
 
 Using these two nodes, X-Hab UI developers have a means of generating and storing timeseries data so they can simulate realtime and historical plotting of the data during development.
 
