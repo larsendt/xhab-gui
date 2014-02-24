@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 XHAB GUI
 ========
 
@@ -112,4 +111,3 @@ $ rails s
 ````
 
 Once the server is running, point your browser to http://localhost:3000 to access the application.
->>>>>>> xhab-ui-daniel/master
