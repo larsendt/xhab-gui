@@ -83,7 +83,10 @@ $ catkin_make
 ####Using rosbuild
 TODO.
 
-###Running the dev nodes
+###Bundle gems
+If you're not familiar with Ruby, gems are Ruby's extensions, or libraries. Rails itself is a Ruby gem, and Rails uses another gem called bundler which is used to download the gems used in a Rails project. Teh Gemfile in the Rails project's root dir lists all the gems included in the project. At the beginning or a project, or anytime new gems are added to a project, you'll need to install them using bundler.
+
+###Run the dev nodes
 You'll need to update the MySQL database connection credentials in data_logger.py on Line 7:
 
 ````python
@@ -102,6 +105,12 @@ $ rosrun xhab_ui_dev data_logger.py
 ````
 
 Keep tabs on your database. It'll start filling up with data as the logger inserts new rows about once a second.
+
+
+````bash
+# From a directory inside the Rails project...
+$ bundle install
+````
 
 ##Running the application
 From within the Rails root directory (the /rails directory in this repo), you can start the default Rails server on the default port 3000.
