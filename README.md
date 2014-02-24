@@ -86,10 +86,20 @@ db = MySQLdb.connect("localhost","root","<root_password>","xhab_ui_dev" )
 ...
 ````
 
+Run the nodes.
+
 ````bash
 $ rosrun xhab_ui_dev data_generator.py
 $ rosrun xhab_ui_dev data_logger.py
 ````
 
+Keep tabs on your database. It'll start filling up with data as the logger inserts new rows about once a second.
+
 ##Running the application
-From within the Rails root directory (the directory containing this README),  
+From within the Rails root directory (the /rails directory in this repo), you can start the default Rails server on the default port 3000.
+
+````bash
+$ rails s
+````
+
+Once the server is running, point your browser to http://localhost:3000 to access the application.
