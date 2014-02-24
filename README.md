@@ -87,7 +87,7 @@ TODO.
 You'll need to update the MySQL database connection credentials in data_logger.py on Line 7:
 
 ````python
-# in xhab_ui_dev/scripts/data_logger.rb
+# in ros/xhab_ui_dev/scripts/data_logger.rb
 ...
 # Line 7:
 db = MySQLdb.connect("localhost","root","<root_password>","xhab_ui_dev" )
