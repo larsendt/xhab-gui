@@ -1,0 +1,18 @@
+This is the SPOTs index page.
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Key</th>
+    <th></th>
+  </thead>
+  <tbody>
+  <% @spots.each do |spot| %>
+    <tr>
+      <td><%= spot.name %></td>
+      <td><%= spot.key %></td>
+      <td><%= link_to "View", spot_path(spot) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table> 

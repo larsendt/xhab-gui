@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require eventemitter2
+//= require roslib
+//= require ros_topics
+//= require spot

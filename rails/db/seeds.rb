@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+[Spot].each &:delete_all
+
+spots = [
+  { name: "SPOT1", key: "spot1" },
+  { name: "SPOT2", key: "spot2" },
+  { name: "SPOT3", key: "spot3" }
+]
+
+spots.each { |spot| Spot.create!(spot) }

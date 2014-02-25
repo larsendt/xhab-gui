@@ -53,4 +53,6 @@ XhabUi::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  resources :spots, only: ['index', 'show']
 end
