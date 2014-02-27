@@ -113,6 +113,13 @@ $ bundle install
 ````
 
 ##Running the application
+First run the data_generator node and launch rosbridge_websocket so the app can communicate with ROS using WebSockets.
+
+````bash
+$ rosrun xhab_ui_dev data_generator.py
+$ roslaunch rosbridge_server rosbridge_websocket.launch
+````
+
 From within the Rails root directory (the /rails directory in this repo), you can start the default Rails server on the default port 3000.
 
 ````bash
@@ -120,3 +127,4 @@ $ rails s
 ````
 
 Once the server is running, point your browser to http://localhost:3000 to access the application.
+At present the home page is the default Rails page. You can access the Spot index at http://localhost:3000/spots.
