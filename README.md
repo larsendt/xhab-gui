@@ -18,9 +18,14 @@ A few key packages should be installed first.
 $ sudo apt-get install build-essential nodejs mysql-server mysql-client libmysqlclient-dev
 ````
 
+Rosbridge Suite is the package that provides the websocket interface to ROS.
+
+````bash
+$ sudo apt-get install ros-hydro-rosbridge-suite
+
 ###Install ROS
 
-If you're not already running ROS, follow the [ROS installation instructions](http://wiki.ros.org/ROS/Installation) on ROS.org. ROS Groovy is being used for this project (due to limitations of some system components), so be sure that you follow the instructions for ROS Groovy.
+If you're not already running ROS, follow the [ROS installation instructions](http://wiki.ros.org/ROS/Installation) on ROS.org. ROS Hydro is being used for this project (some system components use Groovy, but the main node runs Hydro), so be sure that you follow the instructions for ROS Hydro.
 
 ###Install Ruby (using RVM)
 
@@ -80,17 +85,26 @@ $ sudo ln -s <path_to_repo>/ros/xhab_ui_dev src/
 $ catkin_make
 ````
 
-####Using rosbuild
-TODO.
-
 ###Bundle gems
-If you're not familiar with Ruby, gems are Ruby's extensions, or libraries. Rails itself is a Ruby gem, and Rails uses another gem called bundler which is used to download the gems used in a Rails project. Teh Gemfile in the Rails project's root dir lists all the gems included in the project. At the beginning or a project, or anytime new gems are added to a project, you'll need to install them using bundler.
+If you're not familiar with Ruby, gems are Ruby's extensions, or libraries. Rails itself is a Ruby gem, and Rails uses another gem called bundler which is used to download the gems used in a Rails project. The Gemfile in the Rails project's root dir lists all the gems included in the project. At the beginning or a project, or anytime new gems are added to a project, you'll need to install them using bundler.
+
+````bash
+# From a directory inside the Rails project...
+$ bundle install
+````
+
+Run any pending migrations. Migrations are the way Rails version controls the database, and keeps schemas in sync across developer environments and deployments.
+
+````bash
+# From a directory inside the Rails project...
+$ rake db:migrate
+````
 
 ###Run the dev nodes
 You'll need to update the MySQL database connection credentials in data_logger.py on Line 7:
 
 ````python
-# in ros/xhab_ui_dev/scripts/data_logger.rb
+# in ros/xhab_ui_dev/scripts/data_logger.py
 ...
 # Line 7:
 db = MySQLdb.connect("localhost","root","<root_password>","xhab_ui_dev" )
@@ -106,17 +120,10 @@ $ rosrun xhab_ui_dev data_logger.py
 
 Keep tabs on your database. It'll start filling up with data as the logger inserts new rows about once a second.
 
-
-````bash
-# From a directory inside the Rails project...
-$ bundle install
-````
-
 ##Running the application
-First run the data_generator node and launch rosbridge_websocket so the app can communicate with ROS using WebSockets.
+Launch rosbridge_websocket so the Rails app can communicate with ROS using WebSockets.
 
 ````bash
-$ rosrun xhab_ui_dev data_generator.py
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 ````
 
