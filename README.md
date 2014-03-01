@@ -66,7 +66,7 @@ mysql> CREATE TABLE data (timestamp INT(11), source VARCHAR(255), type VARCHAR(2
 mysql> exit
 ````
 
-###Install the package
+###Install the mysql library for python
 The data_logger requires the python MySQL package, so be sure to install that before you build the package.
 If you're using a python environment management system (like virtualenv), you may want to install the extension in the way that works for your environment.
 If you're using a global python installation on your system, you can grab the extension using apt-get.
