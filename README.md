@@ -45,6 +45,15 @@ Install the version of Ruby used for this project (2.1.0). This could take a few
 $ rvm install 2.1.0
 ````
 
+###Install the mysql library for python
+The data_logger requires the python MySQL package, so be sure to install that before you build the package.
+If you're using a python environment management system (like virtualenv), you may want to install the extension in the way that works for your environment.
+If you're using a global python installation on your system, you can grab the extension using apt-get.
+
+````bash
+$ sudo apt-get install python-mysqldb
+````
+
 ##Bootstrapping
 To support UI development, the xhab_ui_dev ROS package is provided in this repository. The package provides two python nodes: data_generator.py and data_logger.py. The data_generator produces a simple sine wave of data, publishing data points each second on the dev/data topic. The data_logger subscribes to the topic and inserts each data point into a MySQL database. 
 
@@ -64,15 +73,6 @@ mysql> CREATE DATABASE xhab_ui_dev;
 mysql> use xhab_ui_dev;
 mysql> CREATE TABLE data (timestamp INT(11), source VARCHAR(255), type VARCHAR(255), data FLOAT, INDEX timestamp USING BTREE (timestamp), INDEX source USING BTREE (source), INDEX type USING BTREE (type));
 mysql> exit
-````
-
-###Install the mysql library for python
-The data_logger requires the python MySQL package, so be sure to install that before you build the package.
-If you're using a python environment management system (like virtualenv), you may want to install the extension in the way that works for your environment.
-If you're using a global python installation on your system, you can grab the extension using apt-get.
-
-````bash
-$ sudo apt-get install python-mysqldb
 ````
 
 ####Using catkin
