@@ -71,7 +71,7 @@ The xhab_ui_dev package is found in the ros directory of this project.
 $ mysql -u root -p<mysql_root_password>
 mysql> CREATE DATABASE xhab_ui_dev;
 mysql> use xhab_ui_dev;
-mysql> CREATE TABLE data (timestamp INT(11), source VARCHAR(255), type VARCHAR(255), data FLOAT, INDEX timestamp USING BTREE (timestamp), INDEX source USING BTREE (source), INDEX type USING BTREE (type));
+mysql> CREATE TABLE data (timestamp INT(11), source VARCHAR(255), type VARCHAR(255), value FLOAT, INDEX timestamp USING BTREE (timestamp), INDEX source USING BTREE (source), INDEX type USING BTREE (type));
 mysql> exit
 ````
 
