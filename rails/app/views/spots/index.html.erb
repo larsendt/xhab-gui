@@ -5,20 +5,35 @@
       <div class="spot-battery-level-container">
         <div class="spot-battery-level-pct">74%</div>
         <div class="spot-battery-level"></div>
+        <div class="icon-power"><%= fa_icon "flash" %></div>
       </div>
-      <div class="icon-power"><%= fa_icon "flash" %></div>
+      <div class="spot-water-level-container">
+        <div class="spot-water-level-pct">80%</div>
+        <div class="spot-water-level"></div>
+        <div class="icon-tint"><%= fa_icon "tint" %></div>
+      </div>
     </div>
     <div class="spot-controls">
       <div class="spot-control">
         <div class="control-label">Lights</div>
-        <div class="control toggle toggle-modern off"></div>
+        <div class="control toggle toggle-on-off toggle-modern off"></div>
       </div>
       <div class="spot-control">
         <div class="control-label">Pump</div>
-        <div class="control toggle toggle-modern off"></div>
+        <div class="control toggle toggle-on-off toggle-modern off"></div>
+      </div>
+      <div class="spot-control">
+        <div class="control-label">Fan</div>
+        <div class="control toggle toggle-on-off toggle-modern off"></div>
+      </div>
+      <div class="spot-control">
+        <div class="control-label">Curtain</div>
+        <div class="control toggle toggle-open-close toggle-modern off"></div>
       </div>
     </div>
-    <div class="spot-camera">Camera View</div>
+    <div class="spot-camera">
+      <%= image_tag "plant-pic.jpg", width: "100%" %>
+    </div>
     <div class="spot-data-container">
       <div class="spot-title"><%= spot.name %> <%= link_to "Detail View", spot_path(spot) %></div>
       <div class="spot-data" id="spot<%= i+1 %>"></div>
