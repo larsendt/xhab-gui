@@ -18,9 +18,15 @@ A few key packages should be installed first.
 $ sudo apt-get install build-essential nodejs mysql-server mysql-client libmysqlclient-dev
 ````
 
+Rosbridge Suite is the package that provides the websocket interface to ROS.
+
+````bash
+$ sudo apt-get install ros-hydro-rosbridge-suite
+````
+
 ###Install ROS
 
-If you're not already running ROS, follow the [ROS installation instructions](http://wiki.ros.org/ROS/Installation) on ROS.org. ROS Groovy is being used for this project (due to limitations of some system components), so be sure that you follow the instructions for ROS Groovy.
+If you're not already running ROS, follow the [ROS installation instructions](http://wiki.ros.org/ROS/Installation) on ROS.org. ROS Hydro is being used for this project (some system components use Groovy, but the main node runs Hydro), so be sure that you follow the instructions for ROS Hydro.
 
 ###Install Ruby (using RVM)
 
@@ -37,6 +43,15 @@ Install the version of Ruby used for this project (2.1.0). This could take a few
 
 ````bash
 $ rvm install 2.1.0
+````
+
+###Install the mysql library for python
+The data_logger requires the python MySQL package, so be sure to install that before you build the package.
+If you're using a python environment management system (like virtualenv), you may want to install the extension in the way that works for your environment.
+If you're using a global python installation on your system, you can grab the extension using apt-get.
+
+````bash
+$ sudo apt-get install python-mysqldb
 ````
 
 ##Bootstrapping
@@ -56,17 +71,8 @@ The xhab_ui_dev package is found in the ros directory of this project.
 $ mysql -u root -p<mysql_root_password>
 mysql> CREATE DATABASE xhab_ui_dev;
 mysql> use xhab_ui_dev;
-mysql> CREATE TABLE data (timestamp INT(11), source VARCHAR(255), type VARCHAR(255), data FLOAT, INDEX timestamp USING BTREE (timestamp), INDEX source USING BTREE (source), INDEX type USING BTREE (type));
+mysql> CREATE TABLE data (timestamp INT(11), source VARCHAR(255), type VARCHAR(255), value FLOAT, INDEX timestamp USING BTREE (timestamp), INDEX source USING BTREE (source), INDEX type USING BTREE (type));
 mysql> exit
-````
-
-###Install the package
-The data_logger requires the python MySQL package, so be sure to install that before you build the package.
-If you're using a python environment management system (like virtualenv), you may want to install the extension in the way that works for your environment.
-If you're using a global python installation on your system, you can grab the extension using apt-get.
-
-````bash
-$ sudo apt-get install python-mysqldb
 ````
 
 ####Using catkin
@@ -80,17 +86,26 @@ $ sudo ln -s <path_to_repo>/ros/xhab_ui_dev src/
 $ catkin_make
 ````
 
-####Using rosbuild
-TODO.
-
 ###Bundle gems
-If you're not familiar with Ruby, gems are Ruby's extensions, or libraries. Rails itself is a Ruby gem, and Rails uses another gem called bundler which is used to download the gems used in a Rails project. Teh Gemfile in the Rails project's root dir lists all the gems included in the project. At the beginning or a project, or anytime new gems are added to a project, you'll need to install them using bundler.
+If you're not familiar with Ruby, gems are Ruby's extensions, or libraries. Rails itself is a Ruby gem, and Rails uses another gem called bundler which is used to download the gems used in a Rails project. The Gemfile in the Rails project's root dir lists all the gems included in the project. At the beginning or a project, or anytime new gems are added to a project, you'll need to install them using bundler.
+
+````bash
+# From a directory inside the Rails project...
+$ bundle install
+````
+
+Run any pending migrations. Migrations are the way Rails version controls the database, and keeps schemas in sync across developer environments and deployments.
+
+````bash
+# From a directory inside the Rails project...
+$ rake db:migrate
+````
 
 ###Run the dev nodes
 You'll need to update the MySQL database connection credentials in data_logger.py on Line 7:
 
 ````python
-# in ros/xhab_ui_dev/scripts/data_logger.rb
+# in ros/xhab_ui_dev/scripts/data_logger.py
 ...
 # Line 7:
 db = MySQLdb.connect("localhost","root","<root_password>","xhab_ui_dev" )
@@ -106,13 +121,13 @@ $ rosrun xhab_ui_dev data_logger.py
 
 Keep tabs on your database. It'll start filling up with data as the logger inserts new rows about once a second.
 
+##Running the application
+Launch rosbridge_websocket so the Rails app can communicate with ROS using WebSockets.
 
 ````bash
-# From a directory inside the Rails project...
-$ bundle install
+$ roslaunch rosbridge_server rosbridge_websocket.launch
 ````
 
-##Running the application
 From within the Rails root directory (the /rails directory in this repo), you can start the default Rails server on the default port 3000.
 
 ````bash
@@ -120,3 +135,4 @@ $ rails s
 ````
 
 Once the server is running, point your browser to http://localhost:3000 to access the application.
+At present the home page is the default Rails page. You can access the Spot index at http://localhost:3000/spots.
