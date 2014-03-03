@@ -63,16 +63,41 @@ The xhab_ui_dev package is found in the ros directory of this project.
 
 ###Create the database
 ````bash
-# The data table has four columns:
-# timetamp: UNIX timestamp
-# source: Which component provided the data, e.g., 'spot3' or 'rogr'
-# type: What sensor provided the data, e.g., 'ph', 'temp'
-# value: unsigned float (the data)
 $ mysql -u root -p<mysql_root_password>
 mysql> CREATE DATABASE xhab_ui_dev;
-mysql> use xhab_ui_dev;
-mysql> CREATE TABLE data (timestamp INT(11), source VARCHAR(255), type VARCHAR(255), value FLOAT, INDEX timestamp USING BTREE (timestamp), INDEX source USING BTREE (source), INDEX type USING BTREE (type));
 mysql> exit
+````
+
+###Configure your database credentials
+The Rails project contains an example config file, which you'll need to copy and edit to fit your environment. The contents of the file looks like this:
+````yaml
+development:
+  adapter: mysql2
+  database: xhab_ui_dev
+  username: root
+  password:
+  pool: 5
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+````
+
+First, copy the example file into a Rails-readable configuration file:
+````bash
+# From within the Rails project root dir
+$ cp config/database.example.yml config/database.yml
+````
+
+Then edit the username and password in config/database.yml as appropriate for your MySQL installation.
+
+
+###Create the schema
+Rails migrations are used to version control the database schema. To run the migrations and build the schema, run this:
+````bash
+# From within a Rails directory
+$ rake db:migrate
 ````
 
 ####Using catkin
@@ -94,7 +119,7 @@ If you're not familiar with Ruby, gems are Ruby's extensions, or libraries. Rail
 $ bundle install
 ````
 
-Run any pending migrations. Migrations are the way Rails version controls the database, and keeps schemas in sync across developer environments and deployments.
+Run any pending migrations. Migrations are the way Rails version controls the database, and keeps schemas in sync across developer environments and deployments. You ran this in an earlier step, but get used to running it, as you'll need to run the migrations any time new schema updates are pushed to the repo.
 
 ````bash
 # From a directory inside the Rails project...
