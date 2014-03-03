@@ -42,6 +42,9 @@ nosetests.xml
 /rails/db/*.sqlite3
 /rails/db/*.sqlite3-journal
 
+# ignore database config
+/rails/config/database.yml
+
 # Ignore all logfiles and tempfiles.
 /rails/log/*.log
 /rails/tmp
