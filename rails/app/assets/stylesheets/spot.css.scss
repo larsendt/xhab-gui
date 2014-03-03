@@ -1,11 +1,16 @@
 .spot-container {
-  margin: 20px 0 30px 0;
+  background: #333339;
+  padding: 20px;
 }
 
 div.spot-data {
-  width: 820px;
+  width: 810px;
   margin-top: 20px;
   position:relative;
+}
+
+.spot-title {
+  font-weight: bold;
 }
 
 .group {
@@ -13,6 +18,7 @@ div.spot-data {
 }
 
 .axis {
+  color: #eee;
   font: 10px sans-serif;
   position: absolute;
   pointer-events: none;
@@ -20,6 +26,7 @@ div.spot-data {
 }
 
 .axis text {
+  fill: #ccc;
   -webkit-transition: fill-opacity 250ms linear;
 }
 
@@ -28,7 +35,7 @@ div.spot-data {
 }
 
 .axis line {
-  stroke: #000;
+  stroke: #eee;
   shape-rendering: crispEdges;
 }
 
@@ -43,14 +50,14 @@ div.spot-data {
 }
 
 .horizon {
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px #eee;
   overflow: hidden;
   position: relative;
 }
 
 .horizon {
-  border-top: solid 1px #000;
-  border-bottom: solid 1px #000;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
 }
 
 .horizon + .horizon {
@@ -62,8 +69,12 @@ div.spot-data {
 }
 
 .horizon .title,
-.horizon .value {
-  width: 80px;
+.horizon .value,
+.horizon .unit {
+  color: #222;
+  font-size: 12px;
+  font-weight: bold;
+  width: 46px;
   bottom: 0;
   line-height: 30px;
   margin: 0;
@@ -71,11 +82,11 @@ div.spot-data {
   position: absolute;
   text-shadow: 0 1px 0 rgba(255,255,255,.5);
   white-space: nowrap;
-  background-image: linear-gradient(left, #fff 0%, rgba(255,255,255,0) 100%);
-  background-image: -o-linear-gradient(left, #fff 0%, rgba(255,255,255,0) 100%);
-  background-image: -moz-linear-gradient(left, #fff 0%, rgba(255,255,255,0) 100%);
-  background-image: -webkit-linear-gradient(left, #fff 0%, rgba(255,255,255,0) 100%);
-  background-image: -ms-linear-gradient(left, #fff 0%, rgba(255,255,255,0) 100%);
+  background-image: linear-gradient(left, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.65) 100%);
+  background-image: -o-linear-gradient(left, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.65) 100%);
+  background-image: -moz-linear-gradient(left, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.65) 100%);
+  background-image: -webkit-linear-gradient(left, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.65) 100%);
+  background-image: -ms-linear-gradient(left, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.65) 100%);
 }
 
 .horizon .title {
@@ -83,7 +94,15 @@ div.spot-data {
 }
 
 .horizon .value {
-  right: 0;
+  right: 53px;
+  width: 30px;
+  text-align: right;
+}
+
+.horizon .unit {
+  position: absolute;
+  width: 45px;
+  right: 0px;
 }
 
 .line {

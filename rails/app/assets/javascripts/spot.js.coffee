@@ -1,6 +1,13 @@
 $ ->
   return unless $("body").hasClass("spots") && $("body").hasClass("index")
 
+  labels = {
+    ph: "pH",
+    ec: "E.C.",
+    temp: "Temp",
+    rh: "R.H."
+  }
+
   property = (args) ->
     context.metric((start, stop, step, callback) ->
       url = "/data.json?source=" + args[0] + "&property=" + args[1] + "&start=" + start + "&stop=" + stop
@@ -11,7 +18,7 @@ $ ->
         )
         callback(null, values)
       )
-    , args[1])
+    , labels[args[1]])
 
   context = cubism.context()
     .serverDelay(3000)
@@ -37,8 +44,13 @@ $ ->
       .attr("class", "horizon")
       .call(context.horizon().format(d3.format("> ,.2f")))
 
+    d3.select("#spot" + i)
+      .selectAll(".horizon")
+      .data(["pH","mS/cm","°F","%"])
+      .append("div").attr("class", "unit")
+      .text((d) -> d)
     i++
-
+ 
   context.on("focus", (i) ->
     d3.selectAll(".value").style("right", i == null ? null : context.size() - i + "px")
   ) 
