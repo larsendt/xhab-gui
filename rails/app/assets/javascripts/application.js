@@ -20,5 +20,7 @@
 //= require roslib
 //= require ros_topics
 //= require global
+//= require knobKnob.jquery
+//= require knob
 //= require spot
 //= require interactive-elements
