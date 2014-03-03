@@ -15,6 +15,7 @@
 //= require d3
 //= require cubism.v1
 //= require eventemitter2
+//= require moment
 //= require roslib
 //= require ros_topics
 //= require spot
