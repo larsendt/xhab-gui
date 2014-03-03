@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require d3
+//= require cubism.v1
 //= require eventemitter2
 //= require roslib
 //= require ros_topics
