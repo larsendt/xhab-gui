@@ -1,7 +1,7 @@
 .spot-container {
   background: #333339;
   border-bottom: 1px solid #666669;
-  height: 200px;
+  height: 240px;
   padding: 6px 10px 15px 10px;
   position: relative;
   width: 1252px;
@@ -53,6 +53,16 @@
       position: absolute;
       width: 20px;
     }
+
+    .spot-battery-level-label {
+      bottom: -14px;
+      font-size: 9px;
+      font-weight: bold;
+      left: -1px;
+      position: absolute;
+      text-align: center;
+      width: 20px; 
+    }
   }
 
   .spot-water-level-container {
@@ -89,30 +99,49 @@
       position: absolute;
       width: 40px;
     }
+ 
+    .spot-water-level-label {
+      bottom: -14px;
+      font-size: 9px;
+      font-weight: bold;
+      left: -1px;
+      position: absolute;
+      text-align: center;
+      width: 42px; 
+    }
   }
 }
 
 .spot-controls {
   height: 160px;
-  left: 100px;
+  left: 92px;
   position: absolute;
   top: 10px;
-  width: 100px;
+  width: 120px;
 
   .spot-control {
     height: 20px;
     margin-bottom: 6px;
 
+    
     .control-label {
       clear: both;
       display: block;
       float: left;
-      font-size: 12px;
+      font-size: 11px;
       height: 20px;
       line-height: 20px;
       margin: 0;
       padding: 0;
-      width: 50px;
+      width: 60px;
+    
+      &.color-red {
+        color: #ff2a2a;
+      }
+
+      &.color-far-red {
+        color: #cc2a2a;
+      }
     }
 
     .control {
