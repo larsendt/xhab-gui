@@ -55,4 +55,6 @@ XhabUi::Application.routes.draw do
   #   end
 
   resources :spots, only: ['index', 'show']
+  resources :data, only: ['index']
+  match '/data/current', via: :get, to: 'data#current'
 end
