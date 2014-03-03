@@ -16,7 +16,9 @@
 //= require cubism.v1
 //= require eventemitter2
 //= require moment
+//= require toggles
 //= require roslib
 //= require ros_topics
 //= require global
 //= require spot
+//= require interactive-elements

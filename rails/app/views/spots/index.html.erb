@@ -1,6 +1,23 @@
 <div class="spots-container">
 <% @spots.each_with_index do |spot, i| %>
   <div class="spot-container">
+    <div class="spot-states">
+      <div class="spot-battery-level-container">
+        <div class="spot-battery-level-pct">74%</div>
+        <div class="spot-battery-level"></div>
+      </div>
+      <div class="icon-power"><%= fa_icon "flash" %></div>
+    </div>
+    <div class="spot-controls">
+      <div class="spot-control">
+        <div class="control-label">Lights</div>
+        <div class="control toggle toggle-modern off"></div>
+      </div>
+      <div class="spot-control">
+        <div class="control-label">Pump</div>
+        <div class="control toggle toggle-modern off"></div>
+      </div>
+    </div>
     <div class="spot-camera">Camera View</div>
     <div class="spot-data-container">
       <div class="spot-title"><%= spot.name %> <%= link_to "Detail View", spot_path(spot) %></div>

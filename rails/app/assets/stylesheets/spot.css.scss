@@ -4,7 +4,7 @@
   height: 162px;
   padding: 6px 10px 15px 10px;
   position: relative;
-  width: 1028px;
+  width: 1228px;
   
   a {
     color: #99aaff;
@@ -13,11 +13,84 @@
   }
 }
 
+.spot-states {
+  height: 160px;
+  left: 10px;
+  position: absolute;
+  width: 100px;
+ 
+  .icon-power {
+    bottom: 10px;
+    color: #ffff77;
+    position: absolute;
+    text-align: center;
+    width: 22px;
+  }
+ 
+  .spot-battery-level-container {
+    background: #660000;
+    border: 1px solid #9999bb;
+    height: 154px;
+    position: relative;
+    top: 0px;
+    width: 20px;
+
+    .spot-battery-level-pct {
+      color: #ddd;
+      font-size: 9px;
+      position: absolute;
+      text-align: center;
+      top: 44px;
+      width: 20px;
+    }
+
+    .spot-battery-level {
+      background: #00dd00;
+      bottom: 0px;
+      height: 100px;
+      margin: 0px;
+      position: absolute;
+      width: 20px;
+    }
+  }
+}
+
+.spot-controls {
+  height: 160px;
+  left: 110px;
+  position: absolute;
+  top: 10px;
+  width: 100px;
+
+  .spot-control {
+    height: 20px;
+    margin-bottom: 6px;
+
+    .control-label {
+      clear: both;
+      display: block;
+      float: left;
+      font-size: 12px;
+      height: 20px;
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+      width: 40px;
+    }
+
+    .control {
+      display: block;
+      float: left;
+      width: 100px;
+    }
+  }
+}
+
 .spot-camera {
   background: #505062;
   color: #707085;
   height: 156px;
-  left: 10px;
+  left: 210px;
   line-height: 156px;
   position: absolute;
   text-align: center;
@@ -27,7 +100,7 @@
 
 .spot-data-container {
   position: absolute;
-  left: 228px;
+  left: 428px;
 }
 
 div.spot-data {
