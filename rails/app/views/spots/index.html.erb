@@ -1,6 +1,11 @@
+<div class="spots-container">
 <% @spots.each_with_index do |spot, i| %>
-<div class="spot-container">
-<div class="spot-title"><%= spot.name %> <%= link_to "Detail View", spot_path(spot) %></div>
-<div class="spot-data" id="spot<%= i+1 %>"></div>
-</div>
+  <div class="spot-container">
+    <div class="spot-camera">Camera View</div>
+    <div class="spot-data-container">
+      <div class="spot-title"><%= spot.name %> <%= link_to "Detail View", spot_path(spot) %></div>
+      <div class="spot-data" id="spot<%= i+1 %>"></div>
+    </div>
+  </div>
 <% end %>
+</div>

@@ -1,5 +1,27 @@
 body {
   color: #eee;
   font-family: 'Arimo', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+header {
+  background: #000;
+  height: 30px;
+  width: 100%;
+
+  h1 {
+    font-size: 18px;
+    line-height: 30px;
+    margin: 0 10px;
+  
+    .subtitle {
+      color: #ccc;
+      font-weight: normal;
+    }
+  } 
+}
+
+footer {
+  
+}

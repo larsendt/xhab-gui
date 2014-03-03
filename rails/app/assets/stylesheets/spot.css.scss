@@ -1,18 +1,39 @@
 .spot-container {
-  width: 800px;
   background: #333339;
-  padding: 20px;
-
+  border-bottom: 1px solid #666669;
+  height: 162px;
+  padding: 6px 10px 15px 10px;
+  position: relative;
+  width: 1028px;
+  
   a {
     color: #99aaff;
     font-size: 12px;
+     font-weight: normal;
   }
 }
 
+.spot-camera {
+  background: #505062;
+  color: #707085;
+  height: 156px;
+  left: 10px;
+  line-height: 156px;
+  position: absolute;
+  text-align: center;
+  top: 8px;
+  width: 208px;
+} 
+
+.spot-data-container {
+  position: absolute;
+  left: 228px;
+}
+
 div.spot-data {
-  width: 810px;
-  margin-top: 20px;
+  margin-top: 14px;
   position:relative;
+  width: 810px;
 }
 
 .spot-title {
