@@ -11,14 +11,25 @@ header {
   width: 100%;
 
   h1 {
+    display: block;
     font-size: 18px;
     line-height: 30px;
     margin: 0 10px;
-  
+    position: absolute;
+    width: 200px;
+
     .subtitle {
       color: #ccc;
       font-weight: normal;
     }
+  }
+
+  #date-time {
+    color: #ccc;
+    font-size: 12px;
+    line-height: 30px;
+    position: absolute;
+    right: 10px;
   } 
 }
 

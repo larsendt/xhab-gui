@@ -18,4 +18,5 @@
 //= require moment
 //= require roslib
 //= require ros_topics
+//= require global
 //= require spot
