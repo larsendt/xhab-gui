@@ -1,6 +1,12 @@
 .spot-container {
+  width: 800px;
   background: #333339;
   padding: 20px;
+
+  a {
+    color: #99aaff;
+    font-size: 12px;
+  }
 }
 
 div.spot-data {
