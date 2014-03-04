@@ -52,6 +52,30 @@ def callback_spot3_rh(data):
 def callback_spot4_rh(data):
   insert_data('spot4', 'rh', data)
 
+def callback_spot1_pwr(data):
+  insert_data('spot1', 'battery', data)
+
+def callback_spot2_pwr(data):
+  insert_data('spot2', 'battery', data)
+
+def callback_spot3_pwr(data):
+  insert_data('spot3', 'battery', data)
+
+def callback_spot4_pwr(data):
+  insert_data('spot4', 'battery', data)
+
+def callback_spot1_res(data):
+  insert_data('spot1', 'res_level', data)
+
+def callback_spot2_res(data):
+  insert_data('spot2', 'res_level', data)
+
+def callback_spot3_res(data):
+  insert_data('spot3', 'res_level', data)
+
+def callback_spot4_res(data):
+  insert_data('spot4', 'res_level', data)
+
 def insert_data(source, prop, data):
   db = MySQLdb.connect("localhost","root","","xhab_ui_dev" ) 
   cursor = db.cursor()
@@ -82,6 +106,14 @@ def listener():
   rospy.Subscriber("data/spot2/rh", Float32, callback_spot2_rh)
   rospy.Subscriber("data/spot3/rh", Float32, callback_spot3_rh)
   rospy.Subscriber("data/spot4/rh", Float32, callback_spot4_rh)
+  rospy.Subscriber("data/spot1/battery", Float32, callback_spot1_pwr)
+  rospy.Subscriber("data/spot2/battery", Float32, callback_spot2_pwr)
+  rospy.Subscriber("data/spot3/battery", Float32, callback_spot3_pwr)
+  rospy.Subscriber("data/spot4/battery", Float32, callback_spot4_pwr)
+  rospy.Subscriber("data/spot1/res_level", Float32, callback_spot1_res)
+  rospy.Subscriber("data/spot2/res_level", Float32, callback_spot2_res)
+  rospy.Subscriber("data/spot3/res_level", Float32, callback_spot3_res)
+  rospy.Subscriber("data/spot4/res_level", Float32, callback_spot4_res)
   rospy.spin()
  
 if __name__ == '__main__':
