@@ -24,3 +24,4 @@
 //= require knob
 //= require spot
 //= require interactive-elements
+//= require test_interface

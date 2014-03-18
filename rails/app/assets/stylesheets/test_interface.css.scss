@@ -1,0 +1,28 @@
+.container {
+  padding: 10px;
+
+  .panel {
+    width: 400px;
+    float: left;
+    margin-right: 10px;
+ 
+    .row {
+      clear: both;
+      margin: 5px 0;
+      height: 20px;
+
+      .label {
+        clear: both;
+        float: left;
+        text-align: right;
+        width: 200px;
+        margin-right: 10px;
+      }
+
+      .value {
+        float: left;
+        width: 50px;
+      }
+    }
+  }
+}
