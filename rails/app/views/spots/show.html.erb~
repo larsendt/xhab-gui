@@ -7,7 +7,10 @@ This is a single SPOT page.
     <td><%= @spot.key %></td>
   </tr>
 </table>
-
+<br/>
+<br/>
 <div class="spot-data" id="spot1"></div>
 
-
+<div class="spot-camera">
+      <%= image_tag "plant-pic.jpg", width: "100%" %>
+    </div>  	

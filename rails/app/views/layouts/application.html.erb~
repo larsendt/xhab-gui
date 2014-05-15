@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Xhab User Interface</title>
+  <title>XhabUi</title>
   <link href='http://fonts.googleapis.com/css?family=Arimo:400,700|Varela' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
