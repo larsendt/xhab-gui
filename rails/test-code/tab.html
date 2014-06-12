@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>XHAB ROGR INTERFACE</title>
+<link rel="stylesheet" type="text/css" href="test.css">
+<link rel="stylesheet" type="text/css" href="switch.css">
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="test.js"></script>
+<script type="text/javascript" src="ros_topics.js"></script>
+<script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+<script type="text/javascript" src="http://cdn.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+<script type="text/javascript" src="http://brown-ros-pkg.googlecode.com/svn/tags/brown-ros-pkg/rosbridge/ros.js"></script>
+<script>
+  // Connecting to ROS
+  // -----------------
+  var ros = new ROSLIB.Ros();
+
+  // If there is an error on the backend, an 'error' emit will be emitted.
+  ros.on('error', function(error) {
+    console.log(error);
+  });
+
+  // Find out exactly when we made a connection.
+  ros.on('connection', function() {
+    console.log('Connection made!');
+  });
+
+  // Create a connection to the rosbridge WebSocket server.
+  ros.connect('ws://10.201.24.53:9090');
+</script>
+
+</head>
+
+<body>
+
+<table width="1200">
+<tr>
+<td style="width:90px;vertical-align:top" bgcolor="#C0C0C0">
+<div id="tabs">
+	<ul>
+		<li id="li_tab1" onclick="cameratab1('tab1')"><a>Camera 1</a></li>
+		<li id="li_tab2" onclick="cameratab1('tab2')"><a>Camera 2</a></li>
+		<li id="li_tab3" onclick="cameratab1('tab3')"><a>Camera 3</a></li>
+	</ul>
+	<div id="Content_Area">
+		<div id="tab1">
+			<p>Camera 1 feed </p>			
+			<img id="cam1" src="" width="400" height="250" />
+		</div>
+
+		<div id="tab2" style="display: none;">
+			<p>Camera 2 feed </p>	
+			<img id="cam2" src="" width="400" height="250" />
+		</div>
+		<div id="tab3" style="display: none;">
+			<p>Camera 3 feed </p>	
+			<img id="cam3" src="" width="400" height="250" />
+		</div>
+	</div>
+	<br/>
+	<br/>
+
+	<ul>
+		<li id="li_tab4" onclick="cameratab2('tab4')"><a>Camera 1</a></li>
+		<li id="li_tab5" onclick="cameratab2('tab5')"><a>Camera 2</a></li>
+		<li id="li_tab6" onclick="cameratab2('tab6')"><a>Camera 3</a></li>
+	</ul>
+	
+	<div id="Content_Area">
+		<div id="tab4">
+			<p>Camera 1 feed </p>			
+			<img id="cam4" src="" width="400" height=250" />
+		</div>
+
+		<div id="tab5" style="display: none;">
+			<p>Camera 2 feed </p>	
+			<img id="cam5" src="" width="400" height="250" />
+		</div>
+		
+		<div id="tab6" style="display: none;">
+			<p>Camera 3 feed </p>	
+			<img id="cam6" src="" width="400" height="250" />
+		</div>
+
+	</div>
+	
+</div>
+</td>
+<td style="width:100px;vertical-align:top" bgcolor="#C0C0C0">
+<div id="tabs">
+	<ul>
+		<li id="li_tab7" onclick="armtab('tab7')"><a>ARM</a></li>
+	</ul>
+	<br />
+	<p>Shoulder Controls</p>
+	<form oninput="sh.value=shoulder.value">	
+	<input id="shoulder" type="range" min="45" max="220" step="10" orient="vertical" />
+	<output name="sh" for="shoulder"></output>
+	</form>
+	<p>Elbow Controls</p>			
+	<form oninput="el.value=elbow.value">			
+	<input id="elbow" type="range" min="60" max="200" step="10" orient="horizontal" />
+	<output name="el" for="elbow"></output>
+	<button name="button" onclick="DriveArm()">Execute ARM Motion</button>
+	</form>	
+	<br />
+	<ul>
+		<li id="li_tab9" onclick="lifttab('tab9')"><a>Turret</a></li>
+	</ul>
+	<br />
+	<br />
+	<p>Pan</p>
+	<table>
+	<form oninput="pn.value=pan.value">			
+	<input id="pan" type="range" min="0" max="60" step="10" orient="horizontal" />
+	<output name="pn" for="pan"></output>
+	
+	</form>	
+	<p>Tilt</p>
+	<form oninput="lf.value=lift.value">	
+	<input id="lift" type="range" min="0" max="6" step="1" orient="vertical" />
+	<output name="lf" for="lift"></output>
+	<button name="button" onclick="MoveTurret()">Move Turret</button>
+	</form>			
+
+	</table>
+</td>
+<td style="width:100px;vertical-align:top" bgcolor="#C0C0C0">
+<div id="tabs">	
+	<ul>
+		<li id="li_tab8" onclick="drivetab('tab8')"><a>Drive</a></li>
+	</ul>
+		<div id="tab8">
+			<br />
+			<br /> 
+			<p>Drive Controls</p>	
+			<table>
+				<tr>
+					<td><button id="leftup" onclick="LeftUp()">LUp</button></td>
+					<td><button id="up" onclick="Forward()">Forward</button></td>
+					<td><button id="rightup" onclick="RightUp()">RUp</button></td>
+				</tr>
+				<tr>
+					<td><button id="left" onclick="Left()">Left</button></td>
+					<td>&nbsp;</td>
+					<td><button id="right" onclick="Right()">Right</button>
+				</tr>
+				<tr>
+					<td><button id="leftdown" onclick="LeftDown()">LDown</button></td>
+					<td><button id="down" onclick="Back()">Backward</button></td>
+					<td><button id="rightdown" onclick="RightDown()">RDown</button></td>
+				</tr>
+			</table>
+		</div>
+	
+	<ul>
+		<li id="li_tab9" onclick="lifttab('tab9')"><a>Lift</a></li>
+	</ul>
+	<br />
+	<br />
+	<p>Lift Controls</p>
+	<form oninput="lf.value=lift.value">	
+	<input id="lift" type="range" min="0" max="6" step="1" orient="vertical" />
+	<output name="lf" for="lift"></output>
+	<br />
+	<br />
+	<button name="button" onclick="executeLift()">Execute Lift</button>
+	</form>
+</div>
+</td>
+<td style="width:50px;vertical-align:top" bgcolor="#C0C0C0">
+<div id="tabs">	
+	<ul>
+		<li id="li_tab10" onclick="pumptab('tab10')"><a>Pumps</a></li>
+	</ul>
+</div>
+	<br />
+	<br />
+	<p>Water Pump</p>
+	<button name="fr" onclick="WaterPumpOn()">On</button>
+	<button name="bk" onclick="WaterPumpOff()">Off</button>
+    	</label>
+  	</div> 
+	<p>Nutrient Pump</p>
+	<button name="fr" onclick="NutPumpOn()">On</button>
+	<button name="bk" onclick="NutPumpOff()">Off</button>
+    	</label>
+  	</div> 
+<br/>
+<br/>
+<div id="tabs">	
+	<ul>
+		<li id="li_tab11" onclick="rangetab('tab11')"><a>Range Finder</a></li>
+	</ul>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<button name="fr" onclick="Front()">Front</button>
+<br/>
+<button name="bk" onclick="Back()">Back</button>
+<br/>
+<button name="lt" onclick="Left()">Left</button>
+<br/>
+<button name="rt" onclick="Right()">Right</button>
+<br/>
+<br/>
+<br/>
+<div id="tabs">	
+	<ul>
+		<li id="li_tab12" onclick="pressuretab('tab12')"><a>Pressure Sensor</a></li>
+	</ul>
+</div>
+<br/>
+<br/>
+<br/>
+<button name="p1" onclick="getPressure1()">Sensor1</button>
+<br/>
+<button name="p2" onclick="getPressure2()">Sensor2</button>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

@@ -1,4 +1,5 @@
-<div id="container">
+<div class="spots-container">
+<% @spots.each_with_index do |spot, i| %>
   <div class="spot-container">
     <div class="spot-states">
       <div class="spot-battery-level-container">
@@ -24,6 +25,10 @@
         <div class="control toggle toggle-on-off toggle-modern off"></div>
       </div>
       <div class="spot-control">
+        <div class="control-label color-far-red">Lights (FR)</div>
+        <div class="control toggle toggle-on-off toggle-modern off"></div>
+      </div>
+      <div class="spot-control">
         <div class="control-label">Pump</div>
         <div class="control toggle toggle-on-off toggle-modern off"></div>
       </div>
@@ -32,7 +37,7 @@
         <div class="control toggle toggle-on-off toggle-modern off"></div>
       </div>
       <div class="spot-control">
-        <div class="control-label">Door</div>
+        <div class="control-label">Curtain</div>
         <div class="control toggle toggle-open-close toggle-modern off"></div>
       </div>
       <div class="knob-container">
@@ -49,4 +54,5 @@
       <div class="spot-data" id="spot<%= i+1 %>"></div>
     </div>
   </div>
+<% end %>
 </div>
