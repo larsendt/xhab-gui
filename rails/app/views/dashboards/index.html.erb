@@ -1,0 +1,243 @@
+<div id="container">
+  <div class="section top">
+    <span class="placeholder">ROGR CAM1</span>  
+  </div>
+  
+  <div class="section top">
+    <span class="placeholder">ROGR CAM2</span>  
+  </div>
+    
+  <div class="section top last">
+    <span class="placeholder">SPOT CAM</span>   
+  </div>
+    
+  <div class="section bottom" style="position:relative;">
+    <h2 class="rogr-title">ROGR</h2>
+    <div class="rogr"></div> 
+   
+    <div class="rogr-data-h2o">
+      <h3>H2O Level</h3>
+      <span>75%</span> 
+    </div>
+
+    <div class="rogr-data-nutrients">
+      <h3>Nutrient Level</h3>
+      <span>56%</span> 
+    </div>
+
+    <div class="rogr-data-battery">
+      <h3>Battery Charge</h3>
+      <span>62%</span> 
+    </div>
+ 
+    <div class="rogr-status">
+      
+      <div class="rogr-location">
+        <div class="header">Location</div>
+        <table>
+          <tr>
+            <td class="active">On Dock</td>
+            <td class="inactive">Off Dock</td>
+          </tr>
+        </table>
+      </div>
+  
+      <div class="rogr-water-tank">
+        <div class="header">Fresh Water</div>
+        <table>
+          <tr>
+            <td class="label">Water Pump</td>
+            <td><button id="rogr-pump-off">Off</button></td>
+            <td><button id="rogr-pump-on">On</button></td>
+          </tr>
+        </table>
+      </div>
+ 
+      <div class="rogr-nutrient-tank">
+        <div class="header">Nutrients</div>
+        <table>
+          <tr>
+            <td class="label">Nutrient Pump</td>
+            <td><button id="rogr-nutirent-pump-off">Off</button></td>
+            <td><button id="rogr-nutrient-pump-on">On</button></td>
+          </tr>
+        </table>
+      </div>
+ 
+    </div> 
+  </div>
+  
+  <div class="section bottom">
+  
+  </div>
+    
+  <div class="section bottom last">
+    <div class="spot-bg">
+
+      <i id="fan1" class="fan-icon fa fa-asterisk inactive"></i>
+      <i id="fan2" class="fan-icon fa fa-asterisk inactive"></i>
+
+      <div id="white-light"></div>
+      <div id="red-light"></div>
+
+      <div class="spot-title">
+        <h2>SPOT 1</h2>
+      </div>
+
+      <div class="spot-controls">
+      <div class="spot-control-lights">
+        <div class="header">Lights</div>
+        <table>
+          <tr>
+            <td class="label">White</td>
+            <td><button id="white-lights-off">Off</button></td>
+            <td><button id="white-lights-on">On</button></td>
+          </tr>
+          <tr>
+            <td class="label">Red</td>
+            <td><button id="red-lights-off">Off</button></td>
+            <td><button id="red-lights-on">On</button></td>
+          </tr>
+        </table> 
+      </div>
+      
+      <div class="spot-control-camera">
+        <div class="header">Camera</div>
+        <table>
+          <tr>
+            <td class="label">Take Image</td>
+            <td><button><i class="fa fa-camera"></i></button></td>
+          </tr>
+          <tr>
+            <td class="label">Auto refresh</td>
+            <td><button id="camera-refresh-off">Off</button></td>
+            <td><button id="camera-refresh-on">On</button></td>
+          </tr>
+        </table> 
+      </div>
+      
+      <div class="spot-control-enclosure">
+        <div class="header">Enclosure</div>
+        <table>
+          <tr>
+            <td class="label">Position</td>
+            <td><button id="enclosure-close">Close</button></td>
+            <td><button id="enclosure-open">Open</button></td>
+          </tr>
+        </table> 
+      </div>
+      
+      <div class="spot-control-fans">
+        <div class="header">Fans</div>
+        <table>
+          <tr>
+            <td class="label">Power</td>
+            <td><button id="fans-off">Off</button></td>
+            <td><button id="fans-on">On</button></td>
+          </tr>
+        </table> 
+      </div>
+      
+      <div class="spot-control-pot">
+        <div class="header">Rotate Plants</div>
+        <table>
+          <tr>
+            <td><button class="rotate"><i class="fa fa-rotate-left"></i></button></td>
+            <td><button class="rotate"><i class="fa fa-rotate-right"></i></button></td>
+            <td><input type="text" size="3" /> Deg. <button>Turn</button></td>
+          </tr>
+        </table> 
+      </div>
+      </div>
+      <div class="spot-data-status rounded">
+        <table>
+          <tr>
+            <td class="label">Curtain</td>
+            <td>Closed</td>
+          </tr>
+          <tr>
+            <td class="label">Lights</td>
+            <td><span class="green">On</span></td>
+          </tr>
+          <tr>
+            <td class="label">Fans</td>
+            <td><span class="red">Off</span></td>
+          </tr>
+          <tr>
+            <td class="label">Started</td>
+            <td>6/1/14</td>
+          </tr>
+          <tr>
+            <td class="label">Day</td>
+            <td>15</td>
+          </tr>
+        </table>
+      </div>
+      <div class="arrow-left-status"></div>
+ 
+      <div class="spot-data-air rounded">
+        <table>
+          <tr id="spot1-air-temp">
+            <td class="label blink">Temp <i class="fa fa-arrow-up"></i></td>
+            <td class="blink">40&deg; C</td>
+          </tr>
+          <tr>
+            <td class="label">R.H.</td>
+            <td>85.5 %</td>
+          </tr>
+          <tr>
+            <td class="label">CO2</td>
+            <td>400 ppm</td>
+          </tr>
+        </table>
+      </div>
+      <div class="arrow-left-air"></div>
+      
+      <div class="spot-data-res rounded">
+        <table>
+          <tr>
+            <td class="label">Temp</td>
+            <td>30&deg; C</td>
+          </tr>
+          <tr>
+            <td class="label blink">pH <i class="fa fa-arrow-down"></i></td>
+            <td class="red blink">4.5</td>
+          </tr>
+          <tr>
+            <td class="label">E.C.</td>
+            <td>1.5 mS/cm3</td>
+          </tr>
+          <tr>
+            <td class="label">D.O.</td>
+            <td>400 ppm</td>
+          </tr>
+        </table>
+      </div>
+      <div class="arrow-left-res"></div>
+      
+      <div class="spot-data-pwr-h2o rounded">
+        <table>
+          <tr>
+            <td class="label">H2O Level</td>
+            <td>70%</td>
+          </tr>
+          <tr>
+            <td class="label">Battery Level</td>
+            <td>45%</td>
+          </tr>
+        </table>
+      </div>
+      <div class="arrow-left-pwr"></div>
+ 
+
+      <div class="spot-data-notes">
+        <p>
+          <span class="label">Started:</span> June 1, 2014. 12 days ago.<br />
+          <span class="label">Growing:</span> Alpine Strawberry<br />
+          <span class="label">Note:</span> Nutrient solution test #8
+        </p>  
+      </div>
+      
+    </div> 
+  </div>
+</div>

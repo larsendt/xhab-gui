@@ -10,5 +10,7 @@
  *
  *= require_self
  *= require font-awesome
- *= require_tree .
+ *= require global
+ *= require spots
+ *= require rogr
  */

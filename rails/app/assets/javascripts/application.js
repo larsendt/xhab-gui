@@ -25,3 +25,4 @@
 //= require spot
 //= require interactive-elements
 //= require test_interface
+//= require ui

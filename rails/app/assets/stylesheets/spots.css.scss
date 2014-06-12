@@ -1,0 +1,286 @@
+.spot-container {
+  width: 33.3333%;
+  float:left;
+  height: 50%;
+  background: #000 url('/spot-bg.jpg') center center no-repeat;
+}
+
+.spot-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000 url('/spot-bg.png') 260px 20px no-repeat;
+  background-size: 220px;
+
+  .header {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px;
+    border-bottom: 1px solid #444; 
+  }
+
+  table {
+    width: 100%;
+
+    button {
+      width: 50px;
+      &.rotate {
+        width: 30px;
+      }
+    }
+  }
+
+  #fan1 {
+    z-index: 10;
+    position: absolute;
+    top: 100px;
+    left: 398px;
+  }
+
+  #fan2 {
+    z-index: 10;
+    position: absolute;
+    top: 230px;
+    left: 397px;
+  }
+
+  #white-light {
+    position:absolute;
+    top:57px;
+    left:306px;
+    width: 132px;
+    height:200px;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  }
+
+  #red-light {
+    position:absolute;
+    top:57px;
+    left:316px;
+    width: 112px;
+    height:200px;
+    background: -webkit-linear-gradient(top, rgba(255,0,0,.8) 0%,rgba(255,0,0,0) 100%);
+  }
+}
+
+.spot-title {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+ 
+  h2 {
+    padding: 0;
+    margin: 0;
+  }  
+}
+
+.spot-controls {
+  position: absolute;
+  top:50px;
+  left: 20px;
+
+  div {
+    margin-bottom: 10px;
+    width: 230px;
+  }
+}
+
+.spot-control-lights {
+  font-size: 12px;
+  font-weight: 300;
+  top: 50px;
+  left: 10px;
+ 
+  .label {
+    width: 50%;
+    color: #aaaadd; 
+  }  
+}
+
+.spot-control-camera {
+  font-size: 12px;
+  font-weight: 300;
+  top: 120px;
+  left: 10px;
+ 
+  .label {
+    width: 50%;
+    color: #aaaadd; 
+  } 
+}
+
+.spot-control-enclosure {
+  font-size: 12px;
+  font-weight: 300;
+  top: 196px;
+  left: 10px;
+ 
+  .label {
+    width: 50%;
+    color: #aaaadd; 
+  } 
+}
+
+.spot-control-fans {
+  font-size: 12px;
+  font-weight: 300;
+  top: 250px;
+  left: 10px;
+ 
+  .label {
+    width: 50%;
+    color: #aaaadd; 
+  } 
+}
+
+.spot-control-pot {
+  font-size: 12px;
+  font-weight: 300;
+  top: 305px;
+  left: 10px;
+ 
+  .label {
+    width: 50%;
+    color: #aaaadd; 
+  } 
+}
+
+.spot-data-status {
+  font-size: 12px;
+  font-weight: light;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 130px;
+  background: #111144;
+ 
+  .label {
+    width: 60%;
+    color: #aaaadd; 
+  } 
+}
+
+.spot-data-air {
+  font-size: 12px;
+  font-weight: light;
+  position: absolute;
+  top: 191px;
+  right: 20px;
+  width: 130px;
+  background: #111144;
+ 
+  .label {
+    width: 55%;
+    color: #aaaadd; 
+  } 
+}
+
+.spot-data-res {
+  font-size: 12px;
+  font-weight: light;
+  position: absolute;
+  top: 280px;
+  right: 20px;
+  width: 130px;
+  background: #111144;
+ 
+  .label {
+    width: 40%;
+    color: #aaaadd; 
+  }
+}
+
+.spot-data-pwr-h2o {
+  font-size: 12px;
+  font-weight: light;
+  position: absolute;
+  top: 380px;
+  right: 20px;
+  width: 130px;
+  background: #111144;
+ 
+  .label {
+    width: 77%;
+    color: #aaaadd; 
+  }
+}
+
+.spot-data-notes {
+  font-size: 14px;
+  font-weight: light;
+  position: absolute;
+  top: 365px;
+  left: 20px;
+  width: 240px;
+ 
+  .label {
+    width: 40%;
+    color: #aaaadd; 
+  }
+ 
+  p {
+    line-height: 20px;
+  }
+}
+
+.spot-data-battery-level {
+  font-size: 14px;
+  font-weight: light;
+  position: absolute;
+  bottom: 30px;
+  left: 140px;
+  width: 100px;
+  background: #111144;
+ 
+  .label {
+    width: 40%;
+    color: #aaaadd; 
+  }
+ 
+}
+
+.arrow-left-status {
+  position: absolute;
+  top: 50px;
+  right: 150px;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:35px solid #111144; 
+}
+
+.arrow-left-air {
+  position: absolute;
+  top: 190px;
+  right: 150px;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:45px solid #111144; 
+}
+
+.arrow-left-res {
+  position: absolute;
+  top: 330px;
+  right: 150px;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:70px solid #111144; 
+}
+
+.arrow-left-pwr {
+  position: absolute;
+  top: 380px;
+  right: 150px;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:90px solid #111144; 
+}

@@ -1,22 +1,27 @@
+html {
+  height: 100%;
+}
 body {
   color: #eee;
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 header {
   background: #000;
   height: 30px;
   width: 100%;
-
+  border-bottom: 1px solid #444;
+  box-sizing: border-box; 
   h1 {
     display: block;
     font-size: 18px;
     line-height: 30px;
     margin: 0 10px;
     position: absolute;
-    width: 200px;
+    width: 50%;
 
     .subtitle {
       color: #ccc;
@@ -33,6 +38,87 @@ header {
   } 
 }
 
+div#container {
+  width: 100%;
+  position:absolute;
+  top: 30px;
+  bottom: 0px;
+  
+  div.section {
+    width: 33.33333%;
+    height:50%;
+    float: left;
+    position:relative; 
+    box-sizing: border-box;
+    background: #000;
+    &.top {
+      border-right: 1px solid #444;
+      border-bottom: 1px solid #444;
+     
+      &.last {
+        border-right:none;
+      }
+    }
+
+    &.bottom {
+      border-right: 1px solid #444;
+
+      &.last {
+        border-right: none;
+      } 
+    }
+
+    .placeholder {
+      font-family: 'Open Sans Condensed';
+      text-align: center;
+      position: absolute;
+      top:0;
+      bottom:0;
+      width: 100%;
+      display: block;
+      margin-top:25%;
+      font-size: 80px;
+      color: #333;
+    }
+  }
+}
+
 footer {
   
+}
+@keyframes blink {  
+    0% { color: red; }
+    100% { color: black; }
+}
+@-webkit-keyframes blink {
+    0% { color: red; }
+    100% { color: #aaaadd; }
+}
+.blink {
+    -webkit-animation: blink 1s linear infinite !important;
+    -moz-animation: blink 1s linear infinite;
+    animation: blink 1s linear infinite;
+} 
+
+button {
+  cursor: pointer;
+  border: none;
+}
+.inactive { opacity: 0.3; }
+.active { opacity: 1; }
+.white { color: #fff; }
+.white-stroke { -webkit-text-stroke: 1px #fff; }  
+.black { color: #000; }
+.red { color: #ff3333; }
+.red-bg {
+  background: #ff3333;
+}
+.green {
+  color: #77ff77;
+}
+.green-bg {
+  background: #77ff77;
+}
+.rounded {
+  border-radius: 0px;
 }

@@ -1,0 +1,131 @@
+.rogr {
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  width: 320px;
+  height: 400px;
+  background: #333; 
+}
+
+.rogr-title {
+  position: absolute;
+  top: 8px;
+  width: 100%;
+  text-align: center; 
+  margin: 0;
+  padding: 0;
+}
+
+.rogr-status > div {
+  margin-bottom: 20px;
+}
+
+.rogr-status {
+  position: absolute;
+  top: 50px;
+  left: 380px; 
+  width: 230px;
+
+  .header {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px;
+    border-bottom: 1px solid #444; 
+  }
+
+  table {
+    width: 100%;
+
+    button {
+      width: 50px;
+      &.rotate {
+        width: 30px;
+      }
+    }
+
+    .label {
+      font-size: 12px;
+      width: 50%;
+      color: #aaaadd; 
+    }  
+
+    .active {
+      font-weight: bold;
+      color: #77ff77;
+    }
+    .inactive {
+      color: #777;  
+    }
+  }
+}
+
+.rogr-data-h2o {
+  z-index: 10;
+  font-size: 12px;
+  font-weight: light;
+  text-align: center;
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  width: 60px;
+  padding: 15px;
+  background: #111144;
+ 
+  .label {
+    width: 60%;
+    color: #aaaadd; 
+  }
+
+  span {
+    font-size: 20px;
+  } 
+  
+}
+
+.rogr-data-nutrients {
+  z-index: 10;
+  font-size: 12px;
+  font-weight: light;
+  text-align: center;
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 60px;
+  padding: 15px;
+  background: #111144;
+ 
+  .label {
+    width: 60%;
+    color: #aaaadd; 
+  }
+
+  span {
+    font-size: 20px;
+  } 
+  
+}
+
+.rogr-data-battery {
+  z-index: 10;
+  font-size: 12px;
+  font-weight: light;
+  text-align: center;
+  position: absolute;
+  top: 320px;
+  left: 150px;
+  width: 60px;
+  padding: 15px;
+  background: #111144;
+ 
+  .label {
+    width: 60%;
+    color: #aaaadd; 
+  }
+
+  span {
+    font-size: 20px;
+  } 
+  
+}
