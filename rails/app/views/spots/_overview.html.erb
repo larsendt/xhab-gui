@@ -9,6 +9,7 @@
       <%= @spot.fan_icons %> 
       <%= @spot.white_light %>
       <%= @spot.red_light %>
+      <%= @spot.tomato %>
 
       <div class="spot-title">
         <h2><%= @spot.name %></h2>
@@ -77,6 +78,18 @@
       <div class="spot-data-status rounded">
         <table>
           <tr>
+            <td class="label">Comm.</td>
+            <td><i class="fa fa-check green"></i></td>
+          </tr>  
+          <tr>
+            <td class="label">Planted On</td>
+            <td><%= @spot.started_on.strftime("%-m/%-d/%y") %></td>
+          </tr>
+          <tr>
+            <td class="label">Day</td>
+            <td><%= (Date.today - @spot.started_on).to_i %></td>
+          </tr>
+          <tr>
             <td class="label">Enclosure</td>
             <td><%= @spot.enclosure_status %></td>
           </tr>
@@ -87,14 +100,6 @@
           <tr>
             <td class="label">Fans</td>
             <td><span class="red"><%= @spot.fan_status %></span></td>
-          </tr>
-          <tr>
-            <td class="label">Started</td>
-            <td><%= @spot.started_on.strftime("%-m/%-d/%y") %></td>
-          </tr>
-          <tr>
-            <td class="label">Day</td>
-            <td><%= (Date.today - @spot.started_on).to_i %></td>
           </tr>
         </table>
       </div>

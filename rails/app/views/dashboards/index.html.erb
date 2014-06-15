@@ -34,25 +34,24 @@
           </tr>
           <tr>
             <td class="label"><%= f.label :note %></td>
-            <td colspan="3"><%= f.text_area :note, style: 'width:99%;' %></td>
+            <td colspan="3"><%= f.text_area :note, rows: 2, style: 'width:99%;' %></td>
           </tr>
         </tbody>
       </table>
 
-      <br />
-      
-      <div style="width:285px;float:left;overflow:hidden;">
+      <div style="width:285px;float:left;">
         <div class="header">Setpoints</div>
         <table>
         <thead>
           <th></th>
-          <th class="label">Low</th>
-          <th class="label">High</th>
+          <th class="label" style="min-width: 60px;">Low</th>
+          <th class="label" style="min-width: 60px;">High</th>
+          <th style="min-width:20px;"></th>
         </thead>
         <tbody>
           <tr>
             <td class="label"><%= f.label :set_air_temp_low, "Air Temp" %></td>
-            <td><%= f.text_field :set_air_temp_low %></td>
+            <td class="value"><%= f.text_field :set_air_temp_low %></td>
             <td><%= f.text_field :set_air_temp_high %></td>
             <td>&deg;C</td>
           </tr>
@@ -72,7 +71,7 @@
             <td class="label"><%= f.label :set_ec_low, "E.C." %></td>
             <td><%= f.text_field :set_ec_low %></td>
             <td><%= f.text_field :set_ec_high %></td>
-            <td>mS/cm2</td>
+            <td style="font-size:12px;">mS/cm2</td>
           </tr>
           <tr>
             <td class="label"><%= f.label :set_ph_low, "pH" %></td>
@@ -96,7 +95,7 @@
         </table>
       </div>
       
-      <div style="width:285px;float:left;margin-left: 20px;overflow:hidden;">
+      <div style="width:265px;float:left;margin-left: 20px;">
         <div class="header">Schedules</div>
         <table>
         <thead>
@@ -117,10 +116,25 @@
           </tr>
         </tbody>
         </table>
+        <br />
+        <table>
+        <thead>
+          <th></th>
+          <th class="label">Duration</th>
+          <th class="label">Frequency</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label"><%= f.label :pump_duration, "Pump" %></td>
+            <td><%= f.text_field :pump_duration %> s</td>
+            <td><%= f.text_field :pump_frequency %> m</td>
+          </tr>
+        </tbody>  
+      </table>
       </div>
 
       <div style="clear:both;"></div>
-      <br /> 
+      <br />
       <%= f.submit "Save", class: 'btn btn-primary' %>&nbsp;
       <span id="spot-saved" style="display:none;">Saved</span>
     <% end %>
@@ -151,8 +165,8 @@
         <div class="header">Location</div>
         <table>
           <tr>
-            <td class="active">On Dock</td>
-            <td class="inactive">Off Dock</td>
+            <td class="inactive">On Dock</td>
+            <td class="active">Off Dock</td>
           </tr>
         </table>
       </div>
@@ -189,36 +203,36 @@
           <td style="padding-bottom:20px;"><div class="header">Lift</div></td>
           <td colspan="2" style="padding:0 0 20px 25px;"><div class="header">Arm</div></td>
         <tr>
-          <td><button><i class="fa fa-arrow-up rotate-45-left"></i></button></td>
-          <td><button><i class="fa fa-arrow-up"></i></button></td>
-          <td><button><i class="fa fa-arrow-up rotate-45-right"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-up rotate-45-left hold"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-up hold"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-up rotate-45-right hold"></i></button></td>
           <td style="width:40px;"></td>
-          <td><button><i class="fa fa-arrow-up"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-up hold"></i></button></td>
           <td class="label">Shoulder</td>
           <td><div class="slider"></div></td>
         </tr>
         <tr>
-          <td><button><i class="fa fa-arrow-left"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-left hold"></i></button></td>
           <td></td>
-          <td><button><i class="fa fa-arrow-right"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-right hold"></i></button></td>
           <td></td>
           <td style="text-align: center;"></td>
           <td class="label">Elbow 1</td>
           <td><div class="slider"></div></td>
         </tr>
         <tr>
-          <td><button><i class="fa fa-arrow-down rotate-45-right"></i></button></td>
-          <td><button><i class="fa fa-arrow-down"></i></button></td>
-          <td><button><i class="fa fa-arrow-down rotate-45-left"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-down rotate-45-right hold"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-down hold"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-down rotate-45-left hold"></i></button></td>
           <td></td>
-          <td><button><i class="fa fa-arrow-down"></i></button></td>
+          <td><button class="hold"><i class="fa fa-arrow-down hold"></i></button></td>
           <td class="label">Elbow 2</td>
           <td><div class="slider"></div></td>
         </tr>
         <tr>
-          <td><button><i class="fa fa-rotate-left rotate-45-right"></i></button></td>
+          <td><button class="hold"><i class="fa fa-rotate-left rotate-45-right hold"></i></button></td>
           <td></td>
-          <td><button><i class="fa fa-rotate-right rotate-45-left"></i></button></td>
+          <td><button class="hold"><i class="fa fa-rotate-right rotate-45-left hold"></i></button></td>
           <td></td>
           <td></td>
           <td class="label">Wrist</td>
@@ -228,8 +242,8 @@
           <td colspan="5"></td>
           <td class="label">Gripper</td>
           <td style="padding-left:20px;">
-            <button class="gripper"><i class="fa fa-circle-o"></i>Close</button>
-            <button class="gripper" style="margin-left:20px;"><i class="fa fa-circle-o-notch"></i>Open</button>
+            <button class="gripper hold"><i class="fa fa-circle-o hold"></i>Close</button>
+            <button class="gripper hold" style="margin-left:20px;"><i class="fa fa-circle-o-notch hold"></i>Open</button>
           </td>
         </tr>
       </table>

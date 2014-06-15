@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614235926) do
+ActiveRecord::Schema.define(version: 20140615163048) do
 
   create_table "data", force: true do |t|
     t.integer "timestamp"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20140614235926) do
     t.date     "started_on"
     t.string   "planted_with"
     t.string   "note"
+    t.integer  "pump_duration"
+    t.integer  "pump_frequency"
   end
 
 end

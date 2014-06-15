@@ -1,7 +1,22 @@
 $ ->
   window.init_ui = ->
+    $(document).on 'mouseup', ->
+      $(".hold").removeClass('green-bg')
+
+    $("button.hold").on 'mousedown', (e) ->
+      $(e.target).addClass('green-bg')
+
+    $("button.hold").on 'mouseup', (e) ->
+      $(e.target).removeClass('green-bg')
+   
+    $("i.hold").on 'mousedown', (e) ->
+      $(e.target).parent().addClass('green-bg')
+
+    $("i.hold").on 'mouseup', (e) ->
+      $(e.target).parent().removeClass('green-bg')
+ 
     $('form.edit_spot').on 'ajax:success', ->
-      $("#spot-saved").show().fadeOut('slow')
+      $("#spot-saved").show().delay(1000).fadeOut('slow')
   
     $("#spot-links a").on 'click', (e) ->
       $("#spot-links a").removeClass("active")
@@ -18,13 +33,13 @@ $ ->
       console.log 'click'
       $("button#fans-off").removeClass('red-bg')
       $("button#fans-on").addClass('green-bg')
-      $(".fan-icon").addClass("fa-spin").addClass('blue')
+      $(".fan-icon").addClass("fa-spin").addClass('on')
       $.ajax(url: window.spot_url, type: 'patch', data:{ spot: { fans: true } })
 
     $("button#fans-off").on 'click', ->
       $("button#fans-on").removeClass('green-bg')
       $("button#fans-off").addClass('red-bg')
-      $(".fan-icon").removeClass("fa-spin").removeClass('blue')
+      $(".fan-icon").removeClass("fa-spin").removeClass('on')
       $.ajax(url: window.spot_url, type: 'patch', data: { spot: { fans: false } })
 
     $("button#white-lights-on").on 'click', ->

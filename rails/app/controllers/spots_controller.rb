@@ -42,6 +42,7 @@ private
                                  :set_do_low, :set_do_high,
                                  :white_light_on, :white_light_off,
                                  :red_light_on, :red_light_off,
+                                 :pump_duration, :pump_frequency, 
                                  :air_temp, :water_temp, :rh, :ec, :ph, :co2, :do,
                                  :fans, :white_light_power, :red_light_power, :refresh, :enclosure,
                                  :name, :key, :started_on, :planted_with, :note)

@@ -41,13 +41,17 @@ class SpotDecorator < Draper::Decorator
     red_light_power? ? "<div id='red-light'></div>".html_safe : "<div id='red-light' style='display:none;'></div>".html_safe
   end
 
+  def tomato
+    h.image_tag '/tomato.png', id: 'tomato'
+  end
+
   def fan_icons
     if fans
-      "<i id='fan1' class='fan-icon fa fa-asterisk fa-spin blue'></i>
-       <i id='fan2' class='fan-icon fa fa-asterisk fa-spin blue'></i>".html_safe
+      "<div id='fan1' class='fan-icon fa-spin on'></div>
+       <div id='fan2' class='fan-icon fa-spin on'></div>".html_safe
     else
-      "<i id='fan1' class='fan-icon fa fa-asterisk'></i>
-       <i id='fan2' class='fan-icon fa fa-asterisk'></i>".html_safe
+      "<div id='fan1' class='fan-icon'></div>
+       <div id='fan2' class='fan-icon'></div>".html_safe
     end
   end
 
