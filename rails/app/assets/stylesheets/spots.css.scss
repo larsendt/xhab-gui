@@ -5,6 +5,56 @@
   background: #000 url('/spot-bg.jpg') center center no-repeat;
 }
 
+#spot-links {
+  z-index: 11;
+  font-size: 12px;
+  position:absolute;
+  top: 540px;
+  right: 390px;
+  color: #666;
+  
+  a {
+    margin: 0 5px;
+  }
+
+  .active {
+    font-weight: bold;
+    color: #77ff77;     
+  }
+}
+
+#spot-panel-setpoints {
+  padding: 0 20px;
+  td {
+    padding: 0 5px;
+  }
+  input {
+    width: 60px;
+  } 
+  .header {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px;
+    border-bottom: 1px solid #444; 
+  }
+  .label {
+    width: 80px;
+    font-size: 12px;
+    color: #aaaadd; 
+  } 
+  table {
+    font-size:12px;
+  } 
+  table.spot-info-table input {
+    width: 150px;
+  }
+  input[type=submit] {
+    width: 60px;
+  } 
+}
+
 .spot-bg {
   position: relative;
   width: 100%;
@@ -32,6 +82,12 @@
     }
   }
 
+  .fan-icon {
+    color: #666;
+  }
+  .fan-icon.blue {
+    color: #bbccff;
+  }
   #fan1 {
     z-index: 10;
     position: absolute;

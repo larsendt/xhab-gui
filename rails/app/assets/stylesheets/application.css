@@ -13,4 +13,6 @@
  *= require global
  *= require spots
  *= require rogr
+ *= require jquery.ui.all
+ *= require jquery.timepicker.css
  */

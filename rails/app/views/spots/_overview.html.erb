@@ -1,0 +1,155 @@
+<div class="spot-bg">
+
+      <%= @spot.fan_icons %> 
+      <%= @spot.white_light %>
+      <%= @spot.red_light %>
+
+      <div class="spot-title">
+        <h2><%= @spot.name %></h2>
+      </div>
+
+      <div class="spot-controls">
+      <div class="spot-control-lights">
+        <div class="header">Lights</div>
+        <table>
+          <tr>
+            <td class="label">White</td>
+            <%= @spot.white_light_buttons %>
+          </tr>
+          <tr>
+            <td class="label">Red</td>
+            <%= @spot.red_light_buttons %>
+          </tr>
+        </table> 
+      </div>
+      
+      <div class="spot-control-camera">
+        <div class="header">Camera</div>
+        <table>
+          <tr>
+            <td class="label">Take Image</td>
+            <td><button><i class="fa fa-camera"></i></button></td>
+          </tr>
+          <tr>
+            <td class="label">Auto refresh</td>
+            <%= @spot.refresh_buttons %> 
+          </tr>
+        </table> 
+      </div>
+      
+      <div class="spot-control-enclosure">
+        <div class="header">Enclosure</div>
+        <table>
+          <tr>
+            <td class="label">Position</td>
+            <%= @spot.enclosure_buttons %>
+          </tr>
+        </table> 
+      </div>
+      
+      <div class="spot-control-fans">
+        <div class="header">Fans</div>
+        <table>
+          <tr>
+            <td class="label">Power</td>
+            <%= @spot.fan_buttons %>
+          </tr>
+        </table> 
+      </div>
+      
+      <div class="spot-control-pot">
+        <div class="header">Rotate Plants</div>
+        <table>
+          <tr>
+            <td><button class="rotate"><i class="fa fa-rotate-left"></i></button></td>
+            <td><button class="rotate"><i class="fa fa-rotate-right"></i></button></td>
+            <td><input type="text" size="3" /> Deg. <button>Turn</button></td>
+          </tr>
+        </table> 
+      </div>
+      </div>
+      <div class="spot-data-status rounded">
+        <table>
+          <tr>
+            <td class="label">Enclosure</td>
+            <td><%= @spot.enclosure_status %></td>
+          </tr>
+          <tr>
+            <td class="label">Lights</td>
+            <td><span class="green"><%= @spot.white_light_status %></span></td>
+          </tr>
+          <tr>
+            <td class="label">Fans</td>
+            <td><span class="red"><%= @spot.fan_status %></span></td>
+          </tr>
+          <tr>
+            <td class="label">Started</td>
+            <td><%= @spot.started_on.strftime("%-m/%-d/%y") %></td>
+          </tr>
+          <tr>
+            <td class="label">Day</td>
+            <td><%= (Date.today - @spot.started_on).to_i %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="arrow-left-status"></div>
+ 
+      <div class="spot-data-air rounded">
+        <table>
+          <tr id="spot1-air-temp">
+            <%= @spot.air_temp_td %>
+          </tr>
+          <tr>
+            <%= @spot.rh_td %>
+          </tr>
+          <tr>
+            <%= @spot.co2_td %>
+          </tr>
+        </table>
+      </div>
+      <div class="arrow-left-air"></div>
+      
+      <div class="spot-data-res rounded">
+        <table>
+          <tr>
+            <td class="label">Temp</td>
+            <td><%= @spot.water_temp %>&deg; C</td>
+          </tr>
+          <tr>
+            <%= @spot.ph_td %>
+          </tr>
+          <tr>
+            <%= @spot.ec_td %>
+          </tr>
+          <tr>
+            <%= @spot.do_td %>
+          </tr>
+        </table>
+      </div>
+      <div class="arrow-left-res"></div>
+      
+      <div class="spot-data-pwr-h2o rounded">
+        <table>
+          <tr>
+            <td class="label">H2O Level</td>
+            <td><%= @spot.h2o_level.to_i %>%</td>
+          </tr>
+          <tr>
+            <td class="label">Battery Level</td>
+            <td><%= @spot.battery_level.to_i %>%</td>
+          </tr>
+        </table>
+      </div>
+      <div class="arrow-left-pwr"></div>
+ 
+
+      <div class="spot-data-notes">
+        <p>
+        <span class="label">Started:</span> <%= @spot.started_on.strftime("%b %e, %Y") %>. <%= (Date.today - @spot.started_on).to_i %> days ago.<br />
+        <span class="label">Growing:</span> <%= @spot.planted_with %><br />
+        <span class="label">Note:</span> <%= @spot.note %>
+        </p>  
+      </div>
+      
+    </div> 
+

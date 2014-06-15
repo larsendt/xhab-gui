@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302045403) do
+ActiveRecord::Schema.define(version: 20140614235926) do
 
   create_table "data", force: true do |t|
     t.integer "timestamp"
@@ -29,6 +29,42 @@ ActiveRecord::Schema.define(version: 20140302045403) do
     t.string   "key"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "set_air_temp_high"
+    t.float    "set_air_temp_low"
+    t.float    "set_water_temp_high"
+    t.float    "set_water_temp_low"
+    t.float    "set_rh_high"
+    t.float    "set_rh_low"
+    t.float    "set_ec_high"
+    t.float    "set_ec_low"
+    t.float    "set_ph_high"
+    t.float    "set_ph_low"
+    t.float    "set_co2_high"
+    t.float    "set_co2_low"
+    t.string   "timezone"
+    t.float    "air_temp"
+    t.float    "water_temp"
+    t.float    "rh"
+    t.float    "ec"
+    t.float    "ph"
+    t.float    "co2"
+    t.integer  "white_light_on"
+    t.integer  "white_light_off"
+    t.integer  "red_light_on"
+    t.integer  "red_light_off"
+    t.float    "do"
+    t.float    "set_do_high"
+    t.float    "set_do_low"
+    t.boolean  "fans"
+    t.boolean  "refresh"
+    t.boolean  "white_light_power"
+    t.boolean  "red_light_power"
+    t.boolean  "enclosure"
+    t.float    "h2o_level"
+    t.float    "battery_level"
+    t.date     "started_on"
+    t.string   "planted_with"
+    t.string   "note"
   end
 
 end

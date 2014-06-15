@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require d3
 //= require cubism.v1
 //= require eventemitter2
@@ -25,4 +26,6 @@
 //= require spot
 //= require interactive-elements
 //= require test_interface
+//= require jquery.timepicker.js
 //= require ui
+//= require sync

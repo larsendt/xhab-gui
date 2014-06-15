@@ -1,3 +1,6 @@
+<script>
+  window.spot_url = "<%= spot_path(@spot) %>"
+</script>
 <div id="container">
   <div class="section top">
     <span class="placeholder">ROGR CAM1</span>  
@@ -7,11 +10,116 @@
     <span class="placeholder">ROGR CAM2</span>  
   </div>
     
-  <div class="section top last">
+  <div id="spot-panel-camera" class="section top last spot-panel">
     <span class="placeholder">SPOT CAM</span>   
   </div>
-    
-  <div class="section bottom" style="position:relative;">
+  
+  <div id="spot-panel-setpoints" class="section top last spot-panel" style="display:none;">
+    <h2><%= @spot.name %> Configuration</h2>
+    <%= form_for @spot, remote: true do |f| %>
+      <div class="header">Information</div>
+      <table class="spot-info-table">
+        <tbody>
+          <tr>
+            <td class="label"><%= f.label :name %></td>
+            <td><%= f.text_field :name %></td>
+            <td class="label" style="padding-left:50px;"><%= f.label :started_on %></td>
+            <td><%= f.date_field :started_on %></td>
+          </tr>
+          <tr>
+            <td class="label"><%= f.label :key %></td>
+            <td><%= f.text_field :key %></td>
+            <td class="label" style="padding-left:50px;"><%= f.label :planted_with %></td>
+            <td><%= f.text_field :planted_with %></td>
+          </tr>
+          <tr>
+            <td class="label"><%= f.label :note %></td>
+            <td colspan="3"><%= f.text_area :note, style: 'width:99%;' %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      
+      <div style="width:285px;float:left;overflow:hidden;">
+        <div class="header">Setpoints</div>
+        <table>
+        <thead>
+          <th></th>
+          <th class="label">Low</th>
+          <th class="label">High</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label"><%= f.label :set_air_temp_low, "Air Temp" %></td>
+            <td><%= f.text_field :set_air_temp_low %></td>
+            <td><%= f.text_field :set_air_temp_high %></td>
+            <td>&deg;C</td>
+          </tr>
+          <tr>
+            <td class="label"><%= f.label :set_water_temp_low, "Water Temp" %></td>
+            <td><%= f.text_field :set_water_temp_low %></td>
+            <td><%= f.text_field :set_water_temp_high %></td>
+            <td>&deg;C</td>
+          </tr>
+          <tr>
+            <td class="label"><%= f.label :set_rh_low, "R.H." %></td>
+            <td><%= f.text_field :set_rh_low %></td>
+            <td><%= f.text_field :set_rh_high %></td>
+            <td>%</td>
+          </tr>
+<tr>
+            <td class="label"><%= f.label :set_ec_low, "E.C." %></td>
+            <td><%= f.text_field :set_ec_low %></td>
+            <td><%= f.text_field :set_ec_high %></td>
+            <td>mS/cm2</td>
+          </tr>
+<tr>
+            <td class="label"><%= f.label :set_ph_low, "pH" %></td>
+            <td><%= f.text_field :set_ph_low %></td>
+            <td><%= f.text_field :set_ph_high %></td>
+            <td></td>
+          </tr>
+<tr>
+            <td class="label"><%= f.label :set_co2_low, "CO2" %></td>
+            <td><%= f.text_field :set_co2_low %></td>
+            <td><%= f.text_field :set_co2_high %></td>
+            <td>ppm</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+      
+      <div style="width:285px;float:left;margin-left: 20px;overflow:hidden;">
+        <div class="header">Schedules</div>
+        <table>
+        <thead>
+          <th></th>
+          <th class="label">On</th>
+          <th class="label">Off</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label"><%= f.label :white_light_on, "White Lights" %></td>
+            <td><%= f.text_field :white_light_on, value: @spot.white_light_on, class: 'timepicker' %></td>
+            <td><%= f.text_field :white_light_off, value: @spot.white_light_off, class: 'timepicker' %></td>
+          </tr>
+          <tr>
+            <td class="label"><%= f.label :red_light_on, "Red Lights" %></td>
+            <td><%= f.text_field :red_light_on, value: @spot.red_light_on, class: 'timepicker' %></td>
+            <td><%= f.text_field :red_light_off, value: @spot.red_light_off, class: 'timepicker' %></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+
+      <div style="clear:both;"></div>
+      <br /> 
+      <%= f.submit "Save", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  
+  <div class="section-double bottom" style="position:relative;">
     <h2 class="rogr-title">ROGR</h2>
     <div class="rogr"></div> 
    
@@ -65,179 +173,68 @@
       </div>
  
     </div> 
+  
+    <div style="width:100%;margin:0 auto;">
+      <table class="rogr-motion-control">
+        <tr>
+          <td><button><i class="fa fa-arrow-up rotate-45-left"></i></button></td>
+          <td><button><i class="fa fa-arrow-up"></i></button></td>
+          <td><button><i class="fa fa-arrow-up rotate-45-right"></i></button></td>
+          <td></td>
+          <td><button><i class="fa fa-arrow-up"></i></button></td>
+          <td class="label">Shoulder</td>
+          <td><div class="slider"></div></td>
+        </tr>
+        <tr>
+          <td><button><i class="fa fa-arrow-left"></i></button></td>
+          <td style="text-align:center;">Drive</td>
+          <td><button><i class="fa fa-arrow-right"></i></button></td>
+          <td></td>
+          <td style="text-align: center;">Lift</td>
+          <td class="label">Elbow 1</td>
+          <td><div class="slider"></div></td>
+        </tr>
+        <tr>
+          <td><button><i class="fa fa-arrow-down rotate-45-right"></i></button></td>
+          <td><button><i class="fa fa-arrow-down"></i></button></td>
+          <td><button><i class="fa fa-arrow-down rotate-45-left"></i></button></td>
+          <td></td>
+          <td><button><i class="fa fa-arrow-down"></i></button></td>
+          <td class="label">Elbow 2</td>
+          <td><div class="slider"></div></td>
+        </tr>
+        <tr>
+          <td><button><i class="fa fa-rotate-left rotate-45-right"></i></button></td>
+          <td></td>
+          <td><button><i class="fa fa-rotate-right rotate-45-left"></i></button></td>
+          <td></td>
+          <td></td>
+          <td class="label">Wrist</td>
+          <td><div class="slider"></div></td>
+        </tr>
+        <tr>
+          <td colspan="5"></td>
+          <td class="label">Gripper</td>
+          <td style="padding-left:20px;">
+            <button class="gripper"><i class="fa fa-circle-o"></i>Close</button>
+            <button class="gripper" style="margin-left:20px;"><i class="fa fa-circle-o-notch"></i>Open</button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
   
-  <div class="section bottom">
+  <div id="spot-panel-setpoints" class="section bottom last spot-panel" style="display:none;">
+
+  </div>
+
+  <div id="spot-panel-status" class="section bottom last spot-panel">
+    <%= sync partial: 'overview', resource: @spot %> 
+  </div>
   
+  <div id="spot-links">
+    <a id="spot-1-camera" data-panel="camera" class="active" href="#">Camera</a>
+    <a id="spot-1-setpoints" data-panel="setpoints" href="#">Configure</a>
   </div>
-    
-  <div class="section bottom last">
-    <div class="spot-bg">
 
-      <i id="fan1" class="fan-icon fa fa-asterisk inactive"></i>
-      <i id="fan2" class="fan-icon fa fa-asterisk inactive"></i>
-
-      <div id="white-light"></div>
-      <div id="red-light"></div>
-
-      <div class="spot-title">
-        <h2>SPOT 1</h2>
-      </div>
-
-      <div class="spot-controls">
-      <div class="spot-control-lights">
-        <div class="header">Lights</div>
-        <table>
-          <tr>
-            <td class="label">White</td>
-            <td><button id="white-lights-off">Off</button></td>
-            <td><button id="white-lights-on">On</button></td>
-          </tr>
-          <tr>
-            <td class="label">Red</td>
-            <td><button id="red-lights-off">Off</button></td>
-            <td><button id="red-lights-on">On</button></td>
-          </tr>
-        </table> 
-      </div>
-      
-      <div class="spot-control-camera">
-        <div class="header">Camera</div>
-        <table>
-          <tr>
-            <td class="label">Take Image</td>
-            <td><button><i class="fa fa-camera"></i></button></td>
-          </tr>
-          <tr>
-            <td class="label">Auto refresh</td>
-            <td><button id="camera-refresh-off">Off</button></td>
-            <td><button id="camera-refresh-on">On</button></td>
-          </tr>
-        </table> 
-      </div>
-      
-      <div class="spot-control-enclosure">
-        <div class="header">Enclosure</div>
-        <table>
-          <tr>
-            <td class="label">Position</td>
-            <td><button id="enclosure-close">Close</button></td>
-            <td><button id="enclosure-open">Open</button></td>
-          </tr>
-        </table> 
-      </div>
-      
-      <div class="spot-control-fans">
-        <div class="header">Fans</div>
-        <table>
-          <tr>
-            <td class="label">Power</td>
-            <td><button id="fans-off">Off</button></td>
-            <td><button id="fans-on">On</button></td>
-          </tr>
-        </table> 
-      </div>
-      
-      <div class="spot-control-pot">
-        <div class="header">Rotate Plants</div>
-        <table>
-          <tr>
-            <td><button class="rotate"><i class="fa fa-rotate-left"></i></button></td>
-            <td><button class="rotate"><i class="fa fa-rotate-right"></i></button></td>
-            <td><input type="text" size="3" /> Deg. <button>Turn</button></td>
-          </tr>
-        </table> 
-      </div>
-      </div>
-      <div class="spot-data-status rounded">
-        <table>
-          <tr>
-            <td class="label">Curtain</td>
-            <td>Closed</td>
-          </tr>
-          <tr>
-            <td class="label">Lights</td>
-            <td><span class="green">On</span></td>
-          </tr>
-          <tr>
-            <td class="label">Fans</td>
-            <td><span class="red">Off</span></td>
-          </tr>
-          <tr>
-            <td class="label">Started</td>
-            <td>6/1/14</td>
-          </tr>
-          <tr>
-            <td class="label">Day</td>
-            <td>15</td>
-          </tr>
-        </table>
-      </div>
-      <div class="arrow-left-status"></div>
- 
-      <div class="spot-data-air rounded">
-        <table>
-          <tr id="spot1-air-temp">
-            <td class="label blink">Temp <i class="fa fa-arrow-up"></i></td>
-            <td class="blink">40&deg; C</td>
-          </tr>
-          <tr>
-            <td class="label">R.H.</td>
-            <td>85.5 %</td>
-          </tr>
-          <tr>
-            <td class="label">CO2</td>
-            <td>400 ppm</td>
-          </tr>
-        </table>
-      </div>
-      <div class="arrow-left-air"></div>
-      
-      <div class="spot-data-res rounded">
-        <table>
-          <tr>
-            <td class="label">Temp</td>
-            <td>30&deg; C</td>
-          </tr>
-          <tr>
-            <td class="label blink">pH <i class="fa fa-arrow-down"></i></td>
-            <td class="red blink">4.5</td>
-          </tr>
-          <tr>
-            <td class="label">E.C.</td>
-            <td>1.5 mS/cm3</td>
-          </tr>
-          <tr>
-            <td class="label">D.O.</td>
-            <td>400 ppm</td>
-          </tr>
-        </table>
-      </div>
-      <div class="arrow-left-res"></div>
-      
-      <div class="spot-data-pwr-h2o rounded">
-        <table>
-          <tr>
-            <td class="label">H2O Level</td>
-            <td>70%</td>
-          </tr>
-          <tr>
-            <td class="label">Battery Level</td>
-            <td>45%</td>
-          </tr>
-        </table>
-      </div>
-      <div class="arrow-left-pwr"></div>
- 
-
-      <div class="spot-data-notes">
-        <p>
-          <span class="label">Started:</span> June 1, 2014. 12 days ago.<br />
-          <span class="label">Growing:</span> Alpine Strawberry<br />
-          <span class="label">Note:</span> Nutrient solution test #8
-        </p>  
-      </div>
-      
-    </div> 
-  </div>
 </div>
