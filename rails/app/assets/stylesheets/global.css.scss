@@ -33,7 +33,7 @@ header {
 
   #date-time {
     color: #ccc;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 30px;
     position: absolute;
     right: 10px;
@@ -112,6 +112,12 @@ footer {
     animation: blink 1s linear infinite;
 } 
 
+a {
+  color: #666;
+}
+input.btn {
+  cursor: pointer;
+}
 button {
   background: #777;
   cursor: pointer;
@@ -125,11 +131,11 @@ button {
 .white { color: #fff; }
 .white-stroke { -webkit-text-stroke: 1px #fff; }  
 .black { color: #000; }
-.red { color: #ff3333; }
+.red { color: #cc1111; }
 .red-bg {
-  background: #ff3333;
+  background: #cc1111;
   &:hover {
-    background: #ff3333;
+    background: #cc1111;
   }
 }
 .blue {

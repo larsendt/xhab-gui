@@ -68,22 +68,28 @@
             <td><%= f.text_field :set_rh_high %></td>
             <td>%</td>
           </tr>
-<tr>
+          <tr>
             <td class="label"><%= f.label :set_ec_low, "E.C." %></td>
             <td><%= f.text_field :set_ec_low %></td>
             <td><%= f.text_field :set_ec_high %></td>
             <td>mS/cm2</td>
           </tr>
-<tr>
+          <tr>
             <td class="label"><%= f.label :set_ph_low, "pH" %></td>
             <td><%= f.text_field :set_ph_low %></td>
             <td><%= f.text_field :set_ph_high %></td>
             <td></td>
           </tr>
-<tr>
+          <tr>
             <td class="label"><%= f.label :set_co2_low, "CO2" %></td>
             <td><%= f.text_field :set_co2_low %></td>
             <td><%= f.text_field :set_co2_high %></td>
+            <td>ppm</td>
+          </tr>
+          <tr>
+            <td class="label"><%= f.label :set_do_low, "D.O." %></td>
+            <td><%= f.text_field :set_do_low %></td>
+            <td><%= f.text_field :set_do_high %></td>
             <td>ppm</td>
           </tr>
         </tbody>
@@ -115,7 +121,8 @@
 
       <div style="clear:both;"></div>
       <br /> 
-      <%= f.submit "Save", class: 'btn btn-primary' %>
+      <%= f.submit "Save", class: 'btn btn-primary' %>&nbsp;
+      <span id="spot-saved" style="display:none;">Saved</span>
     <% end %>
   </div>
   
@@ -177,20 +184,25 @@
     <div style="width:100%;margin:0 auto;">
       <table class="rogr-motion-control">
         <tr>
+          <td colspan="3" style="padding-bottom:20px;"><div class="header">Drive</div></td>
+          <td></td>
+          <td style="padding-bottom:20px;"><div class="header">Lift</div></td>
+          <td colspan="2" style="padding:0 0 20px 25px;"><div class="header">Arm</div></td>
+        <tr>
           <td><button><i class="fa fa-arrow-up rotate-45-left"></i></button></td>
           <td><button><i class="fa fa-arrow-up"></i></button></td>
           <td><button><i class="fa fa-arrow-up rotate-45-right"></i></button></td>
-          <td></td>
+          <td style="width:40px;"></td>
           <td><button><i class="fa fa-arrow-up"></i></button></td>
           <td class="label">Shoulder</td>
           <td><div class="slider"></div></td>
         </tr>
         <tr>
           <td><button><i class="fa fa-arrow-left"></i></button></td>
-          <td style="text-align:center;">Drive</td>
+          <td></td>
           <td><button><i class="fa fa-arrow-right"></i></button></td>
           <td></td>
-          <td style="text-align: center;">Lift</td>
+          <td style="text-align: center;"></td>
           <td class="label">Elbow 1</td>
           <td><div class="slider"></div></td>
         </tr>
@@ -229,12 +241,13 @@
   </div>
 
   <div id="spot-panel-status" class="section bottom last spot-panel">
-    <%= sync partial: 'overview', resource: @spot %> 
+    <%= sync partial: 'overview', resource: @spot %>
   </div>
   
   <div id="spot-links">
     <a id="spot-1-camera" data-panel="camera" class="active" href="#">Camera</a>
     <a id="spot-1-setpoints" data-panel="setpoints" href="#">Configure</a>
+    <a id="spot-1-charts" data-panel="setpoints" href="#">Historical Data</a>
   </div>
 
 </div>

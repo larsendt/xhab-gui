@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    "application", media: "all" %>
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag Sync.adapter_javascript_url %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">

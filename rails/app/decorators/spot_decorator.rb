@@ -43,8 +43,8 @@ class SpotDecorator < Draper::Decorator
 
   def fan_icons
     if fans
-      "<i id='fan1' class='fan-icon fa fa-asterisk blue'></i>
-       <i id='fan2' class='fan-icon fa fa-asterisk blue'></i>".html_safe
+      "<i id='fan1' class='fan-icon fa fa-asterisk fa-spin blue'></i>
+       <i id='fan2' class='fan-icon fa fa-asterisk fa-spin blue'></i>".html_safe
     else
       "<i id='fan1' class='fan-icon fa fa-asterisk'></i>
        <i id='fan2' class='fan-icon fa fa-asterisk'></i>".html_safe
@@ -85,7 +85,7 @@ class SpotDecorator < Draper::Decorator
       "<td class='label blink'>CO2 <i class='fa fa-arrow-down'></i></td>
        <td class='blink'>#{co2.to_i} ppm</td>".html_safe
     else
-      "<td class='label'>R.H.</td>
+      "<td class='label'>CO2</td>
        <td>#{co2.to_i} ppm</td>".html_safe
     end 
   end

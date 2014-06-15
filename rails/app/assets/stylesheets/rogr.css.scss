@@ -20,7 +20,7 @@
   font-size: 12px;
   font-weight: bold;
   position: absolute;
-  top: 100px;
+  top: 50px;
   left: 650px;
   button {
     width: 60px;
@@ -38,6 +38,14 @@
     width: 150px; 
   }
   .gripper {
+  }
+  .header {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px;
+    border-bottom: 1px solid #444; 
   }
 }
 

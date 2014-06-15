@@ -1,4 +1,10 @@
+<script>
+  $(document).ready(function() {
+    window.init_ui();
+  });
+</script>
 <div class="spot-bg">
+  <%= image_tag '/spot-bg.png', style: 'width:214px;display:block;position:absolute;z-index:1;top:20px;left:254px;' %>
 
       <%= @spot.fan_icons %> 
       <%= @spot.white_light %>
