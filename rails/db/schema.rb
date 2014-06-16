@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615200424) do
+ActiveRecord::Schema.define(version: 20140616160544) do
 
   create_table "data", force: true do |t|
     t.integer "timestamp"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 20140615200424) do
     t.float    "do"
     t.float    "set_do_high"
     t.float    "set_do_low"
-    t.boolean  "fans"
     t.boolean  "refresh"
     t.boolean  "white_light_power"
     t.boolean  "red_light_power"
@@ -80,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140615200424) do
     t.string   "note"
     t.integer  "pump_duration"
     t.integer  "pump_frequency"
+    t.boolean  "fan_power"
   end
 
 end

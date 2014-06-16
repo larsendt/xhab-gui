@@ -1,6 +1,8 @@
 <script>
   window.spot_url = "<%= spot_path(@spot) %>"
   window.rogr_url = "<%= rogr_path(@rogr) %>"
+  window.spot_command_url = "<%= "/spots/#{@spot.id}/command" %>"
+  window.spot_config_url = "<%= "/spots/#{@spot.id}/configure" %>"
 </script>
 <div id="container">
   <div class="section top">

@@ -30,7 +30,7 @@ class SpotDecorator < Draper::Decorator
   end
 
   def fan_status
-    fans? ? "<span class='green'>On</span>".html_safe : "<span class='red'>Off</span>".html_safe
+    fan_power? ? "<span class='green'>On</span>".html_safe : "<span class='red'>Off</span>".html_safe
   end
 
   def white_light
@@ -46,7 +46,7 @@ class SpotDecorator < Draper::Decorator
   end
 
   def fan_icons
-    if fans
+    if fan_power?
       "<div id='fan1' class='fan-icon fa-spin on'></div>
        <div id='fan2' class='fan-icon fa-spin on'></div>".html_safe
     else
@@ -134,7 +134,7 @@ class SpotDecorator < Draper::Decorator
   end
 
   def white_light_buttons
-    if white_light_power
+    if white_light_power?
       "<td><button id='white-lights-off'>Off</button></td>
        <td><button id='white-lights-on' class='green-bg'>On</button></td>".html_safe
     else
@@ -144,7 +144,7 @@ class SpotDecorator < Draper::Decorator
   end    
 
   def red_light_buttons
-    if red_light_power
+    if red_light_power?
       "<td><button id='red-lights-off'>Off</button></td>
        <td><button id='red-lights-on' class='green-bg'>On</button></td>".html_safe
     else
@@ -154,7 +154,7 @@ class SpotDecorator < Draper::Decorator
   end    
 
   def refresh_buttons
-    if refresh
+    if refresh?
       "<td><button id='camera-refresh-off'>Off</button></td>
        <td><button id='camera-refresh-on' class='green-bg'>On</button></td>".html_safe
     else
@@ -164,7 +164,7 @@ class SpotDecorator < Draper::Decorator
   end
 
   def enclosure_buttons
-    if enclosure
+    if enclosure?
       "<td><button id='enclosure-close'>Close</button></td>
        <td><button id='enclosure-open' class='green-bg'>Open</button></td>".html_safe
     else
@@ -174,7 +174,7 @@ class SpotDecorator < Draper::Decorator
   end
 
   def fan_buttons
-    if fans
+    if fan_power?
       "<td><button id='fans-off'>Off</button></td>
        <td><button id='fans-on' class='green-bg'>On</button></td>".html_safe
     else

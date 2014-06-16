@@ -27,6 +27,22 @@ class SpotsController < ApplicationController
     end
     @spot.update(_params)
     sync_update @spot 
+    head 200 
+  end
+
+  def command
+    spot_params.each do |key, value|
+      sys_call = "/home/xhab/xhab-spot/spot.py command #{key} #{value}"
+      puts "System call: #{sys_call}"
+    end
+    head 200
+  end
+
+  def configure
+    spot_params.each do |key, value|
+      sys_call = "/home/xhab/xhab-spot/spot.py config #{key} #{value}"
+      puts "System call: #{sys_call}"
+    end
     head 200
   end
 
@@ -44,7 +60,7 @@ private
                                  :red_light_on, :red_light_off,
                                  :pump_duration, :pump_frequency, 
                                  :air_temp, :water_temp, :rh, :ec, :ph, :co2, :do,
-                                 :fans, :white_light_power, :red_light_power, :refresh, :enclosure,
+                                 :fan_power, :white_light_power, :red_light_power, :refresh, :enclosure,
                                  :name, :key, :started_on, :planted_with, :note)
   end
 end
