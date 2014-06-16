@@ -1,5 +1,25 @@
 $ ->
   window.init_ui = ->
+    $("button#rogr-pump-on").on 'click', ->
+      $('button#rogr-pump-on').addClass('green-bg')
+      $('button#rogr-pump-off').removeClass('red-bg')
+      $.ajax(url: window.rogr_url, type: 'patch', data:{ rogr: { water_pump_power: true } })
+  
+    $("button#rogr-pump-off").on 'click', ->
+      $('button#rogr-pump-on').removeClass('green-bg')
+      $('button#rogr-pump-off').addClass('red-bg')
+      $.ajax(url: window.rogr_url, type: 'patch', data:{ rogr: { water_pump_power: false } })
+ 
+    $("button#rogr-nutrient-pump-on").on 'click', ->
+      $('button#rogr-nutrient-pump-on').addClass('green-bg')
+      $('button#rogr-nutrient-pump-off').removeClass('red-bg')
+      $.ajax(url: window.rogr_url, type: 'patch', data:{ rogr: { nutrient_pump_power: true } })
+
+    $("button#rogr-nutrient-pump-off").on 'click', ->
+      $('button#rogr-nutrient-pump-on').removeClass('green-bg')
+      $('button#rogr-nutrient-pump-off').addClass('red-bg')
+      $.ajax(url: window.rogr_url, type: 'patch', data:{ rogr: { nutrient_pump_power: false } })
+ 
     $(document).on 'mouseup', ->
       $(".hold").removeClass('green-bg')
 

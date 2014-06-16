@@ -1,5 +1,6 @@
 <script>
   window.spot_url = "<%= spot_path(@spot) %>"
+  window.rogr_url = "<%= rogr_path(@rogr) %>"
 </script>
 <div id="container">
   <div class="section top">
@@ -165,8 +166,7 @@
         <div class="header">Location</div>
         <table>
           <tr>
-            <td class="inactive">On Dock</td>
-            <td class="active">Off Dock</td>
+            <%= @rogr.docked_status %>
           </tr>
         </table>
       </div>
@@ -176,8 +176,7 @@
         <table>
           <tr>
             <td class="label">Water Pump</td>
-            <td><button id="rogr-pump-off">Off</button></td>
-            <td><button id="rogr-pump-on">On</button></td>
+            <%= @rogr.water_pump_buttons %>
           </tr>
         </table>
       </div>
@@ -187,8 +186,7 @@
         <table>
           <tr>
             <td class="label">Nutrient Pump</td>
-            <td><button id="rogr-nutirent-pump-off">Off</button></td>
-            <td><button id="rogr-nutrient-pump-on">On</button></td>
+            <%= @rogr.nutrient_pump_buttons %>
           </tr>
         </table>
       </div>

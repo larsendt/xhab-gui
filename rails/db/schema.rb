@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615163048) do
+ActiveRecord::Schema.define(version: 20140615200424) do
 
   create_table "data", force: true do |t|
     t.integer "timestamp"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20140615163048) do
   add_index "data", ["property"], name: "index_data_on_property", using: :btree
   add_index "data", ["source"], name: "index_data_on_source", using: :btree
   add_index "data", ["timestamp"], name: "index_data_on_timestamp", using: :btree
+
+  create_table "rogrs", force: true do |t|
+    t.string   "name"
+    t.string   "key"
+    t.boolean  "water_pump_power"
+    t.boolean  "nutrient_pump_power"
+    t.float    "water_level"
+    t.float    "nutrient_level"
+    t.float    "battery_level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "docked"
+  end
 
   create_table "spots", force: true do |t|
     t.string   "name"

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  key: MyString
+  water_pump_power: false
+  nutrient_pump_power: false
+  water_level: 1.5
+  nutrient_level: 1.5
+  battery_level: 1.5
+
+two:
+  name: MyString
+  key: MyString
+  water_pump_power: false
+  nutrient_pump_power: false
+  water_level: 1.5
+  nutrient_level: 1.5
+  battery_level: 1.5
